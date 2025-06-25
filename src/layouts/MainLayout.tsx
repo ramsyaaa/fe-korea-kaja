@@ -1,0 +1,18 @@
+import React, { ReactNode } from "react";
+import Header from "../components/Header";
+
+interface MainLayoutProps {
+  children: ReactNode;
+  pageTitle?: string;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle }) => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header pageTitle={pageTitle} />
+      <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
+    </div>
+  );
+};
+
+export default MainLayout;
