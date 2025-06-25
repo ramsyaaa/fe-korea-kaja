@@ -191,10 +191,9 @@ const HowToSection: React.FC<HowToSectionProps> = ({ className = "" }) => {
           {/* Mobile View with Navigation Buttons */}
           <div className="md:hidden relative mb-6">
             {/* Previous Button */}
-            <button
+            <div
               onClick={handlePrev}
-              disabled={currentSlide === 0}
-              className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer ${
+              className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center cursor-pointer ${
                 currentSlide === 0
                   ? "opacity-0 invisible"
                   : "opacity-100 visible"
@@ -204,9 +203,9 @@ const HowToSection: React.FC<HowToSectionProps> = ({ className = "" }) => {
               <img
                 src={arrowRight}
                 alt="Previous"
-                className="w-3 h-3 transform rotate-180"
+                className="w-[32px] h-[32px] transform rotate-180"
               />
-            </button>
+            </div>
 
             {/* Mobile Slider */}
             <div className="px-8">
@@ -226,18 +225,17 @@ const HowToSection: React.FC<HowToSectionProps> = ({ className = "" }) => {
             </div>
 
             {/* Next Button */}
-            <button
+            <div
               onClick={handleNext}
-              disabled={currentSlide === howToSlides.length - 1}
-              className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-md cursor-pointer ${
+              className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center  cursor-pointer ${
                 currentSlide === howToSlides.length - 1
                   ? "opacity-0 invisible"
                   : "opacity-100 visible"
               }`}
               aria-label="Next slide"
             >
-              <img src={arrowRight} alt="Next" className="w-3 h-3" />
-            </button>
+              <img src={arrowRight} alt="Next" className="w-[32px] h-[32px]" />
+            </div>
           </div>
 
           {/* Desktop Row View - based on Figma design with exact alignment */}

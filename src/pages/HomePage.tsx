@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import ScheduleSection from "../components/ScheduleSection";
 import EligibleSection from "../components/EligibleSection";
 import HowToSection from "../components/HowToSection";
+import CTASection from "../components/CTASection";
 
 const HomePage: React.FC = () => {
   return (
@@ -17,6 +18,9 @@ const HomePage: React.FC = () => {
 
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />
+
+      {/* CTA Section */}
+      <CTASection className="md:mt-8" />
     </MainLayout>
   );
 };
