@@ -1,22 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './assets/fonts.css';
+
+
+:root {
+  font-family: "Gilroy", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
 
 body {
   margin: 0;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: "Gilroy", sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -moz-osx-font-smoothing: grayscale;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-family: 'Ohno Softie Variable', 'Poppins', sans-serif;
+/* h1 {
+  font-family: 'Ohno Softie', 'Poppins', sans-serif;
   line-height: 1.1;
-}
+} */
 
 button {
   border-radius: 8px;

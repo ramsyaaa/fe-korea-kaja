@@ -2,6 +2,8 @@ import React from "react";
 // Import images directly
 import randomPlayDanceMobile from "../assets/images/titles/random-play-dance-mobile.png";
 import randomPlayDanceDesktop from "../assets/images/titles/random-play-dance-desktop.png";
+import scheduleTitleMobile from "../assets/images/titles/schedule-title-mobile.png";
+import scheduleTitleDesktop from "../assets/images/titles/schedule-title-desktop.png";
 
 interface TitleImageProps {
   title: string;
@@ -17,7 +19,11 @@ const TitleImage: React.FC<TitleImageProps> = ({ title, className = "" }) => {
           mobile: randomPlayDanceMobile,
           desktop: randomPlayDanceDesktop,
         };
-
+      case "SCHEDULE":
+        return {
+          mobile: scheduleTitleMobile,
+          desktop: scheduleTitleDesktop,
+        };
       default:
         return {
           mobile: randomPlayDanceMobile,

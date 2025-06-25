@@ -1,11 +1,61 @@
+/* Ohno Softie Font Family */
 @font-face {
-  font-family: 'Ohno Softie Variable';
-  src: local('Ohno Softie Variable'), 
-       url('https://fonts.cdnfonts.com/css/ohno-softie-variable') format('woff2');
-  font-weight: 300 700;
+  font-family: 'Ohno Softie';
+  src: url('/src/assets/fonts/OhnoSoftie-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ohno Softie';
+  src: url('/src/assets/fonts/OhnoSoftie-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gilroy Font Family */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/src/assets/fonts/Gilroy-Regular.eot');
+  src: url('/src/assets/fonts/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/Gilroy-Regular.woff2') format('woff2'),
+       url('/src/assets/fonts/Gilroy-Regular.woff') format('woff'),
+       url('/src/assets/fonts/Gilroy-Regular.ttf') format('truetype'),
+       url('/src/assets/fonts/Gilroy-Regular.svg#Gilroy-Regular') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/src/assets/fonts/Gilroy-Medium.eot');
+  src: url('/src/assets/fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/Gilroy-Medium.woff2') format('woff2'),
+       url('/src/assets/fonts/Gilroy-Medium.woff') format('woff'),
+       url('/src/assets/fonts/Gilroy-Medium.ttf') format('truetype'),
+       url('/src/assets/fonts/Gilroy-Medium.svg#Gilroy-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/src/assets/fonts/Gilroy-Bold.eot');
+  src: url('/src/assets/fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/src/assets/fonts/Gilroy-Bold.woff2') format('woff2'),
+       url('/src/assets/fonts/Gilroy-Bold.woff') format('woff'),
+       url('/src/assets/fonts/Gilroy-Bold.ttf') format('truetype'),
+       url('/src/assets/fonts/Gilroy-Bold.svg#Gilroy-Bold') format('svg');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 /* Fallback font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+

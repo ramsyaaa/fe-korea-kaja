@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        ohno: ['"Ohno Softie Variable"', "sans-serif"],
-        sans: ["Poppins", "sans-serif"],
+        ohno: ["Ohno Softie", "sans-serif"],
+        sans: ["Gilroy", "sans-serif"],
+        gilroy: ["Gilroy", "sans-serif"],
       },
       colors: {
         kpink: {
