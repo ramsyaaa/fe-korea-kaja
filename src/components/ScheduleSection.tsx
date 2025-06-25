@@ -16,21 +16,21 @@ const CityItem: React.FC<CityItemProps> = ({ number, city, venue, date }) => {
     <div className="flex items-center gap-6">
       {/* Number Circle */}
       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F0F2F9] flex items-center justify-center">
-        <span className="text-black text-lg font-gilroy font-normal">
-          {number}
-        </span>
+        <span className="text-black text-lg  font-semibold">{number}</span>
       </div>
 
       {/* City Details */}
-      <div className="flex-grow">
-        <h3 className="text-[#1F2D3D] font-gilroy font-semibold text-lg">
-          {city}
-        </h3>
-        <div className="flex items-center gap-1 text-[#6A7481]">
-          <img src={pinIcon} alt="Location" className="w-4 h-4" />
-          <span className="text-xs font-gilroy">{venue}</span>
+      <div className="flex-grow flex-row flex items-center justify-between">
+        <div className="flex flex-col">
+          <h3 className="text-[#1F2D3D]  font-semibold text-lg">{city}</h3>
+          <div className="flex items-center gap-1 text-[#6A7481]">
+            <img src={pinIcon} alt="Location" className="w-4 h-4" />
+            <span className="text-xs ">{venue}</span>
+          </div>
         </div>
-        <div className="text-sm text-[#6A7481] font-gilroy">{date}</div>
+        <div className="flex ">
+          <div className="text-sm text-[#6A7481] ">{date}</div>
+        </div>
       </div>
     </div>
   );
@@ -77,7 +77,7 @@ const ScheduleSection: React.FC<ScheduleSectionProps> = ({
   ];
 
   return (
-    <section className={`py-10 ${className}`}>
+    <section className={`${className}`}>
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-8">

@@ -8,7 +8,7 @@ const HomePage: React.FC = () => {
   return (
     <MainLayout pageTitle="RANDOM PLAY DANCE">
       {/* Schedule Section */}
-      <ScheduleSection className="mt-24" />
+      <ScheduleSection className="md:mt-24 mt-16" />
     </MainLayout>
   );
 };
