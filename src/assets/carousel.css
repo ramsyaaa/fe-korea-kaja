@@ -1,0 +1,54 @@
+/* Custom styles for the carousel */
+.slick-slide {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.slick-slide img {
+  margin: 0 auto;
+}
+
+/* Fix the height jumping issue */
+.slick-slider, .slick-list, .slick-track {
+  height: 100%;
+}
+
+/* Ensure images don't cause layout shifts */
+.slick-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure images are visible and properly sized */
+.slick-slide img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+  visibility: visible !important;
+}
+
+/* Prevent text selection during swiping */
+.slick-slider {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  touch-action: pan-y;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Make sure the slide transition is smooth */
+.slick-slide {
+  transition: all 0.3s ease;
+}
+
+/* Pointer cursor on navigation buttons */
+button.slick-arrow {
+  cursor: pointer !important;
+}

@@ -43,7 +43,7 @@ const EligibleSection: React.FC<EligibleSectionProps> = ({
             <img
               src={eligibleTitleMobile}
               alt="SIAPA YANG BISA JOIN RPD"
-              className="h-auto max-w-full inline-block"
+              className="h-auto w-full max-w-[416px] inline-block"
             />
           </picture>
           <p className="text-[#6A7481] font-gilroy text-xs md:text-base mt-2 md:mt-3 max-w-2xl mx-auto">

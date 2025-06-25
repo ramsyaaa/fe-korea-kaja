@@ -84,7 +84,7 @@ const ScheduleSection: React.FC<ScheduleSectionProps> = ({
           <img
             src={jadwalTitle}
             alt="JADWAL ROADSHOW RPD"
-            className="h-auto max-w-full inline-block"
+            className="h-auto w-full max-w-[416px] inline-block"
           />
         </div>
 
