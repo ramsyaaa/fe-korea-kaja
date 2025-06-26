@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
     const handleResize = () => {
       const isMobile = window.innerWidth < 768;
       // For mobile use a single background, for desktop use multiple overlaid backgrounds
-      setBackgroundImage(isMobile ? bgPortrait : [bgSnow, bgPlaydance]);
+      setBackgroundImage(bgPlaydance);
     };
 
     handleResize();
@@ -43,11 +43,11 @@ const HomePage: React.FC = () => {
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />
 
-      {/* CTA Section */}
-      <CTASection className="md:mt-8" />
-
       {/* Finalist Section */}
       <FinalistSection />
+
+      {/* CTA Section */}
+      <CTASection className="md:mt-8 max-w-[1228px] flex mx-auto" />
     </MainLayout>
   );
 };

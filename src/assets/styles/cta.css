@@ -1,0 +1,191 @@
+/* CTA Section Styles */
+
+.cta-section {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+.cta-container {
+  background-color: #EA4883;
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background circles using SVG images */
+.background-circle {
+  position: absolute;
+  width: 386px;
+  height: 387px;
+  top: -27px;
+  right: -30px;
+  z-index: 1;
+}
+
+.large-background-circle {
+  position: absolute;
+  width: 1666px;
+  height: 1671px;
+  top: -776px;
+  left: -221px;
+  z-index: 0;
+}
+
+/* Bottom decoration */
+.bottom-decoration {
+  position: absolute;
+  width: 401px;
+  height: 52px;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Group decoration in top-left */
+.cta-decoration-group {
+  position: absolute;
+  width: 326px;
+  height: 260px;
+  top: -55px;
+  left: -46px;
+  z-index: 1;
+}
+
+.group502-bg {
+  position: absolute;
+  width: 326px;
+  height: 260px;
+  top: 0;
+  left: 0;
+}
+
+.group502-circle {
+  position: absolute;
+  width: 114.4px;
+  height: 114.4px;
+  top: 33.59px;
+  left: 124.66px;
+}
+
+.group502-white-circle {
+  position: absolute;
+  width: 179.4px;
+  height: 178.64px;
+  top: 25.98px;
+  left: 23.43px;
+}
+
+/* Content wrapper */
+.cta-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 120px;
+}
+
+/* Title styling */
+.cta-title-container {
+  flex: 1;
+  z-index: 5;
+  max-width: 70%;
+}
+
+/* Button container */
+.cta-button-container {
+  z-index: 5;
+}
+
+/* Button styling */
+.cta-button {
+  background-color: #FFFFFF;
+  color: #FF3090;
+  border-radius: 40px;
+  
+  font-weight: 700;
+  text-align: center;
+  padding: 12px 16px;
+  transition: all 0.2s ease;
+  width: auto;
+  min-width: 260px;
+  font-size: 24px;
+  line-height: 1em;
+  letter-spacing: 0.333%;
+  border: none;
+  cursor: pointer;
+  height: 44px;
+}
+
+/* Hover effects */
+.cta-button:hover {
+  background-color: #FFF0F8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  .cta-container {
+    border-radius: 16px;
+    max-width: 327px;
+    margin: 0 auto;
+  }
+  
+  .cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 16px;
+    gap: 24px;
+  }
+  
+  .cta-title-container {
+    max-width: 100%;
+  }
+  
+  .cta-button-container {
+    width: 100%;
+  }
+  
+  .cta-button {
+    width: 100%;
+    font-size: 20px;
+    line-height: 1.2em;
+    letter-spacing: 0.4%;
+    min-width: unset;
+  }
+  
+  .background-circle {
+    width: 200px;
+    height: 200px;
+    top: -38px;
+    right: 106px;
+  }
+  
+  .large-background-circle {
+    width: 792px;
+    height: 784px;
+    top: -343px;
+    left: -221px;
+  }
+  
+  .bottom-decoration {
+    width: 208px;
+    height: 20px;
+    top:-10px
+  }
+  
+  .cta-decoration-group {
+    width: 163px;
+    height: 130px;
+    top: -28px;
+    left: -23px;
+  }
+}

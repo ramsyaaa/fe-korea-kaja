@@ -1,9 +1,18 @@
 import React from "react";
+import "../assets/styles/cta.css";
 
-// Import images
+// Import SVG assets
+import backgroundCircle from "../assets/icons/cta/background-circle.svg";
+import largeBackgroundCircle from "../assets/icons/cta/large-background-circle.svg";
+import bottomDecoration from "../assets/icons/cta/bottom-decoration.svg";
+import group502Bg from "../assets/icons/cta/group502-bg.svg";
+import group502Circle from "../assets/icons/cta/group502-circle.svg";
+import group502WhiteCircle from "../assets/icons/cta/group502-white-circle.svg";
 
-import ctaTitle from "../assets/images/cta/cta-title.png";
-
+// Import title images
+import ctaTitleDesktop from "../assets/images/cta/cta-title-desktop.png";
+import ctaTitleMobile from "../assets/images/cta/cta-title-mobile.png";
+import bgSnow from "../assets/images/bg/bg-small-snow.png";
 interface CTASectionProps {
   className?: string;
 }
@@ -15,64 +24,87 @@ const CTASection: React.FC<CTASectionProps> = ({ className = "" }) => {
   };
 
   return (
-    <section className={`${className}`}>
-      <div className="container mx-auto px-4 md:px-[108px]">
+    <section className={`cta-section ${className}`}>
+      {/* Bottom decoration */}
+      <img
+        src={bottomDecoration}
+        alt=""
+        className="bottom-decoration"
+        aria-hidden="true"
+      />
+      <div className="container mx-auto px-4 md:px-0">
         <div
-          className="w-full md:rounded-[16px] rounded-[16px] p-6 md:flex md:flex-row flex-col md:gap-16 gap-4 md:items-center"
+          className="cta-container"
           style={{
-            background:
-              "radial-gradient(circle at -29% -11%, rgba(184, 252, 255, 0.6) 0%, rgba(185, 159, 255, 0.85) 100%)",
-            backdropFilter: "blur(4px)",
+            backgroundImage: `url(${bgSnow})`,
+            backgroundRepeat: "no-repeat, no-repeat",
+            backgroundSize: "cover, cover",
+            backgroundPosition: "center, center",
           }}
         >
-          <div className="flex flex-col gap-4">
-            {/* Title image with responsive switching */}
-            <div>
-              <picture>
-                <img
-                  src={ctaTitle}
-                  alt="DAFTAR SEKARANG"
-                  className="h-auto w-auto max-w-[279px] max-h-[72px]"
-                />
-              </picture>
+          {/* Decorative background elements */}
+          <img
+            src={backgroundCircle}
+            alt=""
+            className="background-circle"
+            aria-hidden="true"
+          />
+          <img
+            src={largeBackgroundCircle}
+            alt=""
+            className="large-background-circle"
+            aria-hidden="true"
+          />
+
+          {/* Group 502 pattern from Figma - decoration in top-left */}
+          <div className="cta-decoration-group">
+            <img
+              src={group502Bg}
+              alt=""
+              className="group502-bg"
+              aria-hidden="true"
+            />
+            <img
+              src={group502Circle}
+              alt=""
+              className="group502-circle"
+              aria-hidden="true"
+            />
+            <img
+              src={group502WhiteCircle}
+              alt=""
+              className="group502-white-circle"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Content area */}
+          <div className="cta-content">
+            {/* Title images */}
+            <div className="cta-title-container">
+              {/* Desktop version */}
+              <img
+                src={ctaTitleDesktop}
+                alt="DAFTAR SEKARANG & DAPATKAN KESEMPATAN TRIP KE KOREA!"
+                className="hidden md:block w-auto"
+              />
+              {/* Mobile version */}
+              <img
+                src={ctaTitleMobile}
+                alt="DAFTAR SEKARANG & DAPATKAN KESEMPATAN TRIP KE KOREA!"
+                className="block md:hidden w-auto"
+              />
             </div>
-            <p
-              className="text-[#1F2D3D] md:text-base text-[13px] leading-[1.5em] md:leading-[1.5em]"
-              style={{
-                fontFamily: "Gilroy",
-                letterSpacing: "0.5%",
-              }}
-            >
-              Daftarkan dirimu segera untuk mengikuti RPD Challenge!
-            </p>
-          </div>
 
-          {/* Button for desktop uses fixed width */}
-          <div className="hidden md:block ml-auto">
-            <button
-              onClick={handleRegistration}
-              className="bg-[#F7208F] text-white rounded-[40px] px-4 py-3 h-[44px] md:w-[260px] text-center font-semibold text-base"
-              style={{
-                letterSpacing: "0.5%",
-                lineHeight: "1.5em",
-              }}
-            >
-              Daftar Sekarang
-            </button>
-          </div>
-
-          {/* Button for mobile uses full width */}
-          <div className="md:hidden mt-4">
-            <button
-              onClick={handleRegistration}
-              className="bg-[#F7208F] text-white w-full rounded-[40px] px-4 py-3 h-[44px] text-center font-bold"
-              style={{
-                letterSpacing: "0.5%",
-                lineHeight: "1.5em",
-              }}
-            >
-              DAFTAR RPD
-            </button>
+            {/* Button */}
+            <div className="cta-button-container">
+              <button
+                onClick={handleRegistration}
+                className="cta-button font-ohno font-semibold"
+              >
+                Daftar Sekarang
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -43,9 +43,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   const backgroundStyle = getBackgroundStyle();
 
   return (
-    <div className="min-h-screen flex flex-col" style={backgroundStyle}>
+    <div className="min-h-screen flex flex-col " style={backgroundStyle}>
       <Header pageTitle={pageTitle} />
-      <main className="flex-1 container mx-auto px-4">{children}</main>
+      <main className="flex-1 container mx-auto px-4 ">{children}</main>
       {/* <Footer /> */}
     </div>
   );
