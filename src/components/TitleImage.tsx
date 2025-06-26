@@ -6,7 +6,7 @@ import scheduleTitleMobile from "../assets/images/titles/schedule-title-mobile.p
 import scheduleTitleDesktop from "../assets/images/titles/schedule-title-desktop.png";
 
 interface TitleImageProps {
-  title: string;
+  title?: string;
   className?: string;
 }
 
@@ -26,8 +26,8 @@ const TitleImage: React.FC<TitleImageProps> = ({ title, className = "" }) => {
         };
       default:
         return {
-          mobile: randomPlayDanceMobile,
-          desktop: randomPlayDanceDesktop,
+          mobile: undefined,
+          desktop: undefined,
         };
     }
   };
@@ -36,16 +36,20 @@ const TitleImage: React.FC<TitleImageProps> = ({ title, className = "" }) => {
 
   return (
     <div className={className}>
-      <img
-        src={images.desktop}
-        alt={title}
-        className="hidden md:block h-auto w-full max-w-[549px]"
-      />
-      <img
-        src={images.mobile}
-        alt={title}
-        className="block md:hidden h-auto w-auto max-w-[318px]"
-      />
+      {images?.desktop ?? (
+        <img
+          src={images?.desktop}
+          alt={title}
+          className="hidden md:block h-auto w-full max-w-[549px]"
+        />
+      )}
+      {images?.mobile && (
+        <img
+          src={images?.mobile}
+          alt={title}
+          className="block md:hidden h-auto w-auto max-w-[318px]"
+        />
+      )}
     </div>
   );
 };

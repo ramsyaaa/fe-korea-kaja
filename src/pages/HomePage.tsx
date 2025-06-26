@@ -7,6 +7,7 @@ import EligibleSection from "../components/EligibleSection";
 import HowToSection from "../components/HowToSection";
 import CTASection from "../components/CTASection";
 import FinalistSection from "src/components/FinalistSection";
+import PartnershipSection from "../components/PartnershipSection";
 import bgPlaydance from "../assets/images/bg/bg-playdance.jpg";
 import bgSnow from "../assets/images/bg/bg-snow.png";
 import bgPortrait from "../assets/images/bg-portrait.png";
@@ -30,9 +31,10 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <MainLayout pageTitle="RANDOM PLAY DANCE" backgroundImage={backgroundImage}>
+    <MainLayout backgroundImage={backgroundImage}>
       {/* Schedule Section */}
-
+      {/* Partnership Section */}
+      <PartnershipSection />
       <ScheduleSection className="md:mt-10 mt-8" />
 
       {/* Eligible Section */}
@@ -43,6 +45,8 @@ const HomePage: React.FC = () => {
 
       {/* CTA Section */}
       <CTASection className="md:mt-8" />
+
+      {/* Finalist Section */}
       <FinalistSection />
     </MainLayout>
   );

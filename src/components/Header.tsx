@@ -7,7 +7,7 @@ interface HeaderProps {
   pageTitle?: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ pageTitle = "RANDOM PLAY DANCE" }) => {
+const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
   return (
     <header className="relative w-full">
       {/* Background image - different for desktop/mobile */}
@@ -51,12 +51,6 @@ const Header: React.FC<HeaderProps> = ({ pageTitle = "RANDOM PLAY DANCE" }) => {
           className="mt-8 justify-center w-full md:w-auto  flex"
           title={pageTitle}
         />
-        <div className="flex flex-col md:flex-row items-center justify-center">
-          {/* Title as image - optimized for file size */}
-          <div className="mt-10 md:mt-16  w-full md:w-auto text-center">
-            {/* <TitleImage title={pageTitle} /> */}
-          </div>
-        </div>
       </div>
     </header>
   );
