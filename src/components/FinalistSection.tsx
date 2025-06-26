@@ -169,7 +169,7 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
   return (
     <div className="city-section">
       <div className="city-title">
-        <h2 className="!font-semibold">{cityName}</h2>
+        <h2 className="!font-semibold md:!text-[24px]">{cityName}</h2>
       </div>
       <div className="finalists-container" ref={containerRef}>
         <div className="carousel-wrapper" style={containerStyle}>

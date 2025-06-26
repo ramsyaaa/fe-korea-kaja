@@ -99,7 +99,6 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
             className="w-full h-full object-contain"
           />
         </div>
-
         {/* Description Image - Right Side */}
         <div className="absolute" style={getScaledStyles(elements.description)}>
           <img
@@ -108,10 +107,9 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
             className="w-full h-full object-contain"
           />
         </div>
-
         {/* Asset Image - Bottom */}
         <div
-          className="absolute cursor-pointer"
+          className="absolute cursor-pointer hover:-translate-y-1 hover:opacity-95 hover:drop-shadow-xl transition-all duration-300"
           style={getScaledStyles(elements.asset)}
           onClick={() => alert("Cek info lebih lanjut")}
         >

@@ -8,6 +8,7 @@ import HowToSection from "../components/HowToSection";
 import CTASection from "../components/CTASection";
 import FinalistSection from "src/components/FinalistSection";
 import PartnershipSection from "../components/PartnershipSection";
+import GallerySection from "../components/GallerySection";
 import bgPlaydance from "../assets/images/bg/bg-playdance.jpg";
 import bgSnow from "../assets/images/bg/bg-snow.png";
 import bgPortrait from "../assets/images/bg-portrait.png";
@@ -31,22 +32,26 @@ const HomePage: React.FC = () => {
 
   return (
     <MainLayout backgroundImage={backgroundImage}>
-      {/* Schedule Section */}
       {/* Partnership Section */}
 
       <PartnershipSection className="md:mt-10 mt-8" />
+      {/* How To Section */}
+
       <HowToSection className="md:mt-24 mt-16" />
+      {/* Schedule Section */}
       <ScheduleSection className="md:mt-24 mt-16" />
+
       {/* Eligible Section */}
       {/* <EligibleSection className="md:mt-24 mt-16" /> */}
-
-      {/* How To Section */}
 
       {/* Finalist Section */}
       <FinalistSection />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-8 max-w-[1228px] flex mx-auto" />
+      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" />
+
+      {/* Gallery Section */}
+      <GallerySection className="md:mt-24 mt-16" />
     </MainLayout>
   );
 };

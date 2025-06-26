@@ -1,0 +1,117 @@
+/* Gallery Section Styles */
+.gallery-section {
+  padding: 40px 0;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Desktop Gallery Item Styles */
+.gallery-item {
+  width: 288px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 288px;
+  height: 433px;
+  background-color: #DDE2E8;
+  border-radius: 16px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.play-icon {
+  width: 74.33px;
+  height: 74.33px;
+}
+
+.gallery-item-title {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.53846em;
+  color: #6A7481;
+  text-align: center;
+}
+
+/* Hover effects */
+.video-thumbnail:hover .play-button-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail:hover .play-icon,
+.video-thumbnail-mobile:hover .play-icon-mobile {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  .gallery-section {
+    padding: 24px 0;
+  }
+
+  .gallery-header {
+    margin-bottom: 16px;
+  }
+  
+  .gallery-item-mobile {
+    width: 155px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .video-thumbnail-mobile {
+    position: relative;
+    width: 155px;
+    height: 233px;
+    background-color: #DDE2E8;
+    border-radius: 16px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .play-button-overlay-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .play-icon-mobile {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .gallery-item-title-mobile {
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333em;
+    color: #6A7481;
+    text-align: center;
+  }
+}
