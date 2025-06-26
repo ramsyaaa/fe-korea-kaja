@@ -1,0 +1,134 @@
+.city-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.city-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 8px 16px;
+  position: relative;
+}
+
+/* The SVG quarter circle */
+.quarter-circle-svg {
+  position: absolute;
+  left: -30px;
+  top: -13px;
+  z-index: 1;
+  width: 85px; /* Control the size of the quarter circle */
+  height: 71px;
+}
+
+.number-container {
+  position: relative;
+  width: 31px;
+  height: 31px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number-text {
+  font-family: Gilroy, sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.32;
+  letter-spacing: 0.357%;
+  color: #000000;
+  position: relative;
+  z-index: 2;
+}
+
+.info-container {
+  flex: 1;
+}
+
+.city-name {
+  font-family: Gilroy, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.5%;
+  color: #1F2D3D;
+  margin-bottom: 2px;
+}
+
+.venue-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pin-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.venue {
+  font-family: Gilroy, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #6A7481;
+}
+
+.date-container {
+  min-width: fit-content;
+}
+
+.date {
+  font-family: Gilroy, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.54;
+  color: #1F2D3D;
+  white-space: nowrap;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  .city-item {
+    width: 100%;
+    max-width: 327px;
+    margin: 0 auto;
+  }
+  
+  .city-name {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.5%;
+  }
+  
+  /* Adjust layout for mobile to be more compact */
+  .city-item-inner {
+    gap: 16px; /* Smaller gap on mobile */
+    padding: 8px 12px; /* Slightly smaller padding */
+  }
+  
+  /* Position the quarter circle for mobile */
+  .quarter-circle-svg {
+    left: -30px;
+    top: -15px;
+  }
+  
+  /* Adjust number position for mobile */
+  .number-text {
+    font-size: 24px;
+  }
+  
+  /* Make date text wrap if needed on very small screens */
+  .date-container {
+    min-width: 0;
+  }
+  
+  .date {
+    white-space: normal; /* Allow wrapping on very small screens */
+    font-size: 13px;
+    line-height: 1.54;
+  }
+}
