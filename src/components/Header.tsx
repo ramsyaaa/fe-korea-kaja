@@ -12,8 +12,8 @@ const Header: React.FC<HeaderProps> = ({ pageTitle = "RANDOM PLAY DANCE" }) => {
     <header className="relative w-full">
       {/* Background image - different for desktop/mobile */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src="/src/assets/images/bg-landscape.png"
+        {/* <img
+          src="/src/assets/images/bg/bg-playdance.jpg"
           alt="Background"
           className="hidden md:block w-full h-full object-cover object-top"
         />
@@ -21,15 +21,15 @@ const Header: React.FC<HeaderProps> = ({ pageTitle = "RANDOM PLAY DANCE" }) => {
           src="/src/assets/images/bg-portrait.png"
           alt="Background"
           className="block md:hidden w-full h-full object-cover object-top"
-        />
+        /> */}
 
         {/* Light overlay */}
-        <div className="absolute md:top-1/4 md:left-[108px] top-0 left-0 w-full md:w-[624px] md:h-[328px] h-full">
+        {/* <div className="absolute md:top-1/4 md:left-[108px] top-0 left-0 w-full md:w-[624px] md:h-[328px] h-full">
           <div className="w-full h-full bg-white opacity-30 blur-3xl rounded-full"></div>
-        </div>
+        </div> */}
 
         {/* Gradient overlay at bottom */}
-        <div className="absolute bottom-0 w-full h-16 md:h-24 bg-gradient-to-b from-transparent to-white"></div>
+        {/* <div className="absolute bottom-0 w-full h-16 md:h-24 bg-gradient-to-b from-transparent to-white"></div> */}
       </div>
 
       {/* Top Navigation Bar */}
