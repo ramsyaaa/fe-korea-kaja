@@ -1,19 +1,22 @@
 /* Ohno Softie Font Family */
 @font-face {
   font-family: 'Ohno Softie';
-  src: url('/src/assets/fonts/OhnoSoftie-Regular.woff2') format('woff2');
-  font-weight: 400;
+  src: 
+  /* url('/src/assets/fonts/OhnoSoftie-Regular.woff2') format('woff2'),
+        url('/src/assets/fonts/OhnoSoftie-Regular.woff') format('woff'), */
+        url('/src/assets/fonts/OhnoSoftie-Regular.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Ohno Softie';
   src: url('/src/assets/fonts/OhnoSoftie-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 /* Gilroy Font Family */
 @font-face {

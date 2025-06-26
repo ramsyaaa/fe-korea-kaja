@@ -1,0 +1,400 @@
+/* Finalist Section Styling */
+.finalist-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 108px;
+  gap: 32px;
+  width: 100%;
+}
+
+.finalist-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.nav-button.prev {
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-button.next {
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-button.prev:hover:not(.disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button.next:hover:not(.disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.title-image {
+  width: 100%;
+  height: 100px;
+  background-image: url('./finalist-title-desktop.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.subtitle {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5em;
+  text-align: center;
+  color: #6A7481;
+}
+
+.city-sections-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.city-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  position: relative;
+}
+
+.city-title {
+  display: flex;
+  align-items: center;
+}
+
+.city-title h2 {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33em;
+  letter-spacing: 0.5%;
+  color: #1F2D3D;
+}
+
+.finalists-container {
+  position: relative;
+  width: 100%;
+  padding: 0 20px; /* Add padding for navigation buttons */
+  display: flex;
+  justify-content: center; /* Center the carousel on desktop */
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Width will be set dynamically in JavaScript to ensure full cards */
+  margin: 0 auto; /* Center within container */
+}
+
+.finalists-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: nowrap;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  align-items: center;
+  justify-content: flex-start; /* Align from start instead of center for better carousel behavior */
+}
+
+.finalist-card {
+  display: flex;
+  flex-direction: column;
+  width: 126px;
+  border-radius: 8px;
+  overflow: visible; /* Critical to allow badge to extend beyond card boundaries */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  position: relative; /* Establishes positioning context for absolute badge */
+  isolation: isolate; /* Create a new stacking context for better z-index control */
+}
+
+.photo-container {
+  position: relative;
+  width: 126px;
+  height: 150.46px;
+  background-color: #f0f0f0;
+  overflow: visible; /* Important to allow badge to overlay */
+  border-radius: 8px 8px 0 0;
+  z-index: 1; /* Ensure proper stacking context for badge */
+}
+
+.card-bg {
+  position: absolute;
+  
+  top: -0.46px;
+  left: 0;
+  width: 126px;
+   height: 150px;
+  background-image: url('./card-bg.svg');
+  background-size: cover;
+  z-index: 1;
+  border-radius: 8px 8px 0 0;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  border-radius: 8px 8px 0 0;
+}
+
+.badge {
+    position: absolute;
+   
+    width: 42px;
+    height: 42px;
+    z-index: 50;
+    transform-origin: center;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.badge-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./badge.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+/* .badge-number {
+  position: absolute;
+  top: -6px;
+  z-index: 2;
+  font-family: 'Ohno Softie Variable', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 42px;
+  color: #FFFFFF;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px 1px 0px rgba(66, 0, 66, 1);
+} */
+
+.badge-number {
+  position: absolute;
+  top: -6px;
+  z-index: 2;
+ 
+  color: #FFFFFF;
+text-align: center;
+font-feature-settings: 'liga' off, 'clig' off;
+text-shadow: -1px 1px 0px #420042;
+-webkit-text-stroke-width: 1.5px;
+-webkit-text-stroke-color: #420042;
+
+font-size: 18px;
+
+font-weight: 700;
+line-height: 36px; /* 200% */
+letter-spacing: 0.179px;
+text-transform: uppercase;
+}
+
+.finalist-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 12px;
+  background-color: #960E66;
+  gap: 2px;
+  border-radius: 0 0 8px 8px;
+}
+
+.finalist-name {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.finalist-username {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2em;
+  letter-spacing: 27.27%;
+  text-transform: lowercase;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.nav-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.05), 0px 1px 18px rgba(0, 0, 0, 0.05), 0px 6px 10px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-button:hover:not(.disabled) {
+  transform: scale(1.1);
+}
+
+.nav-button:disabled,
+.nav-button.disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-button.prev {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-button.next {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-button.prev:hover:not(.disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-button.next:hover:not(.disabled) {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left {
+  width: 9px;
+  height: 16px;
+  background-image: url('./arrow-left.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.arrow-right {
+  width: 9px;
+  height: 16px;
+  background-image: url('./arrow-right.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1023px) {
+  .finalist-section {
+    padding: 24px;
+    gap: 24px;
+  }
+  
+  .title-image {
+    background-image: url('./finalist-title-mobile.png');
+    height: 80px;
+  }
+  
+  .subtitle {
+    font-size: 13px;
+  }
+  
+  .city-sections-container {
+    width: 100%;
+    max-width: 327px;
+  }
+  
+  .finalists-container {
+    padding: 0 15px;
+    justify-content: flex-start; /* Align left on mobile */
+  }
+  
+  .carousel-wrapper {
+    width: 100% !important; /* Override inline styles on mobile */
+  }
+  
+  .finalists-grid {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    padding-bottom: 10px; /* Add space for scrollbars */
+  }
+  
+  .finalist-card {
+    scroll-snap-align: start;
+  }
+  
+  .nav-button.prev {
+    left: -5px;
+  }
+  
+  .nav-button.next {
+    right: -5px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .finalist-section {
+    padding: 20px 10px;
+  }
+  
+  .city-sections-container {
+    max-width: 100%;
+  }
+  
+  .finalist-card {
+    width: 120px;
+  }
+  
+  .photo-container {
+    width: 120px;
+    height: 145px;
+  }
+  
+  .nav-button {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .nav-button.prev {
+    left: -3px;
+  }
+  
+  .nav-button.next {
+    right: -3px;
+  }
+
+  .card-bg {
+    width: 120px;
+}
+}

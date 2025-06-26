@@ -44,7 +44,7 @@ const TitleImage: React.FC<TitleImageProps> = ({ title, className = "" }) => {
       <img
         src={images.mobile}
         alt={title}
-        className="block md:hidden h-auto max-w-full"
+        className="block md:hidden h-auto w-auto max-w-[318px]"
       />
     </div>
   );

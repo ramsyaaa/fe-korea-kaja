@@ -47,10 +47,14 @@ const Header: React.FC<HeaderProps> = ({ pageTitle = "RANDOM PLAY DANCE" }) => {
 
       {/* Header Title Section */}
       <div className="relative z-10 container mx-auto px-4 py-6 md:py-0">
+        <TitleImage
+          className="mt-8 justify-center w-full md:w-auto  flex"
+          title={pageTitle}
+        />
         <div className="flex flex-col md:flex-row items-center justify-center">
           {/* Title as image - optimized for file size */}
           <div className="mt-10 md:mt-16  w-full md:w-auto text-center">
-            <TitleImage title={pageTitle} />
+            {/* <TitleImage title={pageTitle} /> */}
           </div>
         </div>
       </div>

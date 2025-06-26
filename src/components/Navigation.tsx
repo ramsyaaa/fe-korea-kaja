@@ -16,6 +16,7 @@ const defaultNavItems: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Schedule", href: "/schedule" },
   { label: "Eligible", href: "/eligible" },
+  { label: "Finalist", href: "/finalist" },
   { label: "How To", href: "/how-to" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
