@@ -1,3 +1,39 @@
+/* Schedule Layout Styles */
+.schedule-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* KV styles */
+.schedule-kv {
+  flex: 0 0 auto;
+  position: relative;
+  width: 704px; /* Width from Figma */
+  height: 328px; /* Height from Figma */
+}
+
+.schedule-kv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Cities list styles */
+.cities-list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+
+/* City Item styles */
 .city-item {
   position: relative;
   border-radius: 16px;
@@ -92,6 +128,31 @@
 
 /* Mobile styles */
 @media screen and (max-width: 767px) {
+  /* Layout changes for mobile */
+  .schedule-content {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .schedule-kv {
+    width: 100%;
+    height: 89px; /* Height from Figma */
+    overflow: hidden;
+  }
+  
+  .schedule-kv-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cities-list {
+    width: 100%;
+    max-width: 327px;
+    margin: 0 auto;
+    gap: 8px; /* Closer spacing between city items on mobile */
+  }
+  
   .city-item {
     width: 100%;
     max-width: 327px;

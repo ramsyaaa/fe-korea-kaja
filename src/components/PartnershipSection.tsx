@@ -87,7 +87,9 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
       <div
         ref={containerRef}
         className="partnership-container w-full mx-auto relative hidden md:block"
-        style={{ height: `${originalHeight * scale}px` }}
+        style={{
+          height: `${originalHeight * scale}px`,
+        }}
       >
         {/* Korea Kaja Image - Left Side */}
         <div className="absolute" style={getScaledStyles(elements.koreaKaja)}>
@@ -122,7 +124,13 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
       </div>
 
       {/* Mobile version - hidden on desktop */}
-      <div className="md:hidden partnership-mobile-container">
+      <div
+        className="md:hidden partnership-mobile-container"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
+        }}
+      >
         <img
           src={partnershipKoreaKajaMobile}
           alt="Korea Kaja Logo"
