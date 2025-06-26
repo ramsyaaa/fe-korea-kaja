@@ -48,7 +48,7 @@ const GallerySection: React.FC<GallerySectionProps> = ({ className = "" }) => {
 
   return (
     <section className={`gallery-section ${className}`}>
-      <div className="container mx-auto px-4 md:px-[108px]">
+      <div className="container mx-auto px-4 md:px-6 lg:px-[108px]">
         {/* Section Header */}
         <div className="gallery-header">
           {/* Desktop version */}
@@ -65,9 +65,9 @@ const GallerySection: React.FC<GallerySectionProps> = ({ className = "" }) => {
           />
         </div>
 
-        {/* Desktop Gallery Grid */}
-        <div className="hidden md:flex justify-between mt-8">
-          {galleryVideos.map((video) => (
+        {/* Desktop Gallery Grid - 1 row of 3 items with responsive sizing */}
+        <div className="hidden md:flex gallery-grid mt-8">
+          {galleryVideos.slice(0, 3).map((video) => (
             <div key={video.id} className="gallery-item">
               <div
                 className="video-thumbnail"

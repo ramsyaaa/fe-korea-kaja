@@ -8,9 +8,22 @@
   margin-bottom: 32px;
 }
 
+/* Desktop Gallery Grid */
+.gallery-grid {
+  
+  justify-content: center;
+  gap: clamp(16px, 2vw, 24px);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Desktop Gallery Item Styles */
 .gallery-item {
-  width: 288px;
+  width: 100%;
+  max-width: 370px;
+  flex: 1 1 30%;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -18,12 +31,13 @@
 
 .video-thumbnail {
   position: relative;
-  width: 288px;
-  height: 433px;
+  width: 100%;
+  aspect-ratio: 288/433; /* Maintain aspect ratio of original design */
   background-color: #DDE2E8;
   border-radius: 16px;
   cursor: pointer;
   overflow: hidden;
+  max-height: 600px;
 }
 
 .play-button-overlay {
@@ -39,17 +53,20 @@
 }
 
 .play-icon {
-  width: 74.33px;
-  height: 74.33px;
+  width: clamp(50px, 10vw, 74.33px);
+  height: clamp(50px, 10vw, 74.33px);
+  transition: transform 0.3s ease;
 }
 
 .gallery-item-title {
   font-family: 'Gilroy', sans-serif;
   font-weight: 400;
-  font-size: 13px;
+  font-size: clamp(12px, 1vw, 13px);
   line-height: 1.53846em;
   color: #6A7481;
   text-align: center;
+  padding: 0 8px;
+  max-width: 100%;
 }
 
 /* Hover effects */
@@ -61,6 +78,17 @@
 .video-thumbnail-mobile:hover .play-icon-mobile {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments for medium screens */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    gap: 16px;
+  }
+  
+  .gallery-item {
+    min-width: 200px;
+  }
 }
 
 /* Mobile Styles */
