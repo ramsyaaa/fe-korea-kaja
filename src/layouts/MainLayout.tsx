@@ -27,7 +27,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         backgroundImage: backgroundImages,
         backgroundRepeat: "no-repeat, no-repeat",
         backgroundSize: "cover, cover",
-        backgroundPosition: "center, center",
+        //   backgroundPosition: "center, center",
       };
     } else {
       // Single background image

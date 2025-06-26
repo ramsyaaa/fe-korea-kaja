@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
       <div className="relative z-20">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
-          <div className="hidden md:block cursor-pointer">
+          <div className="block cursor-pointer">
             <img src={logoIcon} alt="Korea Kaja Logo" className="h-12" />
           </div>
 
@@ -46,12 +46,12 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
       </div>
 
       {/* Header Title Section */}
-      <div className="relative z-10 container mx-auto px-4 py-6 md:py-0">
+      {/* <div className="relative z-10 container mx-auto px-4 py-6 md:py-0">
         <TitleImage
           className="mt-8 justify-center w-full md:w-auto  flex"
           title={pageTitle}
         />
-      </div>
+      </div> */}
     </header>
   );
 };

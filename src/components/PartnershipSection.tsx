@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
+import "../assets/styles/partnership.css";
 import partnershipDesc from "../assets/images/partnership/partnership-desc.png";
 import partnershipAsset from "../assets/images/partnership/partnership-asset.png";
 import partnershipKoreaKaja from "../assets/images/partnership/partnership-koreakaja.png";
+// Mobile assets
+import partnershipKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-koreakaja-mobile.png";
+import partnershipDescMobile from "../assets/images/partnership/mobile/partnership-desc-mobile.png";
+import partnershipAssetMobile from "../assets/images/partnership/mobile/partnership-asset-mobile.png";
 
 interface PartnershipSectionProps {
   className?: string;
@@ -117,8 +122,25 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
       </div>
 
       {/* Mobile version - hidden on desktop */}
-      <div className="md:hidden">
-        {/* We don't need to show anything for mobile as per requirements */}
+      <div className="md:hidden partnership-mobile-container">
+        <img
+          src={partnershipKoreaKajaMobile}
+          alt="Korea Kaja Logo"
+          className="partnership-korea-kaja-mobile"
+        />
+
+        <img
+          src={partnershipDescMobile}
+          alt="Partnership Description"
+          className="partnership-desc-mobile"
+        />
+
+        <img
+          src={partnershipAssetMobile}
+          alt="Partnership Asset Button"
+          className="partnership-asset-mobile"
+          onClick={() => alert("Cek info lebih lanjut")}
+        />
       </div>
     </section>
   );

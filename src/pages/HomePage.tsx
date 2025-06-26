@@ -17,9 +17,8 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobile = window.innerWidth < 768;
       // For mobile use a single background, for desktop use multiple overlaid backgrounds
-      setBackgroundImage(bgPlaydance);
+      setBackgroundImage([bgSnow, bgPlaydance]);
     };
 
     handleResize();
@@ -38,7 +37,7 @@ const HomePage: React.FC = () => {
       <ScheduleSection className="md:mt-10 mt-8" />
 
       {/* Eligible Section */}
-      <EligibleSection className="md:mt-24 mt-16" />
+      {/* <EligibleSection className="md:mt-24 mt-16" /> */}
 
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />

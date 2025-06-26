@@ -28,7 +28,7 @@ const Stepper: React.FC<StepperProps> = ({ currentSlide, totalSlides }) => {
       <div className="h-[2px] bg-[#B8C1CB] absolute w-full md:w-[610px] z-0"></div>
 
       {/* Steps - match Figma gap of 227px on desktop */}
-      <div className="flex items-center gap-x-20 md:flex md:justify-between md:w-[630px] md:mx-auto z-10">
+      <div className="flex items-center md:gap-x-20 gap-x-24 md:flex md:justify-between md:w-[630px] md:mx-auto z-10">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <div key={index} className="flex items-center justify-center">
             <div
