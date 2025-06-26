@@ -181,7 +181,7 @@ const HowToSection: React.FC<HowToSectionProps> = ({ className = "" }) => {
             <img
               src={howToTitleMobile}
               alt="GIMANA CARANYA JOIN RPD?"
-              className="h-auto w-full max-w-[416px] inline-block"
+              className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.8] scale-100"
             />
           </picture>
         </div>

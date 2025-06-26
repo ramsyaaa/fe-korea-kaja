@@ -33,14 +33,14 @@ const HomePage: React.FC = () => {
     <MainLayout backgroundImage={backgroundImage}>
       {/* Schedule Section */}
       {/* Partnership Section */}
-      <PartnershipSection />
-      <ScheduleSection className="md:mt-10 mt-8" />
 
+      <PartnershipSection className="md:mt-10 mt-8" />
+      <HowToSection className="md:mt-24 mt-16" />
+      <ScheduleSection className="md:mt-24 mt-16" />
       {/* Eligible Section */}
       {/* <EligibleSection className="md:mt-24 mt-16" /> */}
 
       {/* How To Section */}
-      <HowToSection className="md:mt-24 mt-16" />
 
       {/* Finalist Section */}
       <FinalistSection />

@@ -1,6 +1,7 @@
 import React from "react";
 import pinIcon from "../assets/icons/schedule/pin-location.svg";
-import jadwalTitle from "../assets/images/schedule/jadwal-title.png";
+import jadwalTitle from "../assets/images/schedule/jadwal-title-mobile.png";
+import jadwalTitleDesktop from "../assets/images/schedule/jadwal-title.png";
 import quarterCircle from "../assets/icons/schedule/quarter-circle.svg";
 import "../assets/styles/schedule.css";
 
@@ -91,11 +92,14 @@ const ScheduleSection: React.FC<ScheduleSectionProps> = ({
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-8">
-          <img
-            src={jadwalTitle}
-            alt="JADWAL ROADSHOW RPD"
-            className="h-auto w-full max-w-[416px] inline-block"
-          />
+          <picture>
+            <source media="(min-width: 768px)" srcSet={jadwalTitleDesktop} />
+            <img
+              src={jadwalTitle}
+              alt="JADWAL ROADSHOW RPD"
+              className="h-auto w-full max-w-[1224px] max-h-[50px] inline-block"
+            />
+          </picture>
         </div>
 
         {/* Cities List - Vertical Stack */}
