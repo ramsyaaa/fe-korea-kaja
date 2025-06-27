@@ -1,0 +1,287 @@
+import React, { useRef, useState, useEffect } from "react";
+import "../assets/styles/kuota.css";
+import checkIcon from "../assets/icons/kuota/check.svg";
+import dividerIcon from "../assets/icons/kuota/divider.svg";
+import chevronLeftIcon from "../assets/icons/kuota/chevron-left.svg";
+import chevronRightIcon from "../assets/icons/kuota/chevron-right.svg";
+import ribbonTailIcon from "../assets/icons/kuota/ribbon-tail.svg";
+
+// Define the product data
+const productData = [
+  {
+    id: 1,
+    ribbon: "Bonus Disney +",
+    dataAmount: "6 GB",
+    period: "30 hari",
+    currentPrice: "Rp 35.000",
+    originalPrice: "Rp. 100.000",
+    features: [
+      {
+        label: "Kuota Utuh",
+        value: "24 jam",
+      },
+      {
+        label: "Bonus Kuota",
+        value: "5 GB",
+      },
+      {
+        label: "Gratis tiket masuk",
+        value: "byUniverse Jember",
+      },
+    ],
+  },
+  {
+    id: 2,
+    ribbon: "Bonus Disney +",
+    dataAmount: "10 GB",
+    period: "30 hari",
+    currentPrice: "Rp 50.000",
+    originalPrice: "Rp. 120.000",
+    features: [
+      {
+        label: "Kuota Utuh",
+        value: "24 jam",
+      },
+      {
+        label: "Bonus Kuota",
+        value: "8 GB",
+      },
+      {
+        label: "Gratis tiket masuk",
+        value: "byUniverse Jember",
+      },
+    ],
+  },
+  {
+    id: 3,
+    ribbon: "Bonus Disney +",
+    dataAmount: "15 GB",
+    period: "30 hari",
+    currentPrice: "Rp 75.000",
+    originalPrice: "Rp. 150.000",
+    features: [
+      {
+        label: "Kuota Utuh",
+        value: "24 jam",
+      },
+      {
+        label: "Bonus Kuota",
+        value: "12 GB",
+      },
+      {
+        label: "Gratis tiket masuk",
+        value: "byUniverse Jember",
+      },
+    ],
+  },
+  {
+    id: 4,
+    ribbon: "Bonus Disney +",
+    dataAmount: "30 GB",
+    period: "30 hari",
+    currentPrice: "Rp 100.000",
+    originalPrice: "Rp. 200.000",
+    features: [
+      {
+        label: "Kuota Utuh",
+        value: "24 jam",
+      },
+      {
+        label: "Bonus Kuota",
+        value: "15 GB",
+      },
+      {
+        label: "Gratis tiket masuk",
+        value: "byUniverse Jember",
+      },
+    ],
+  },
+];
+
+interface KuotaKoreaKajaSectionProps {
+  className?: string;
+}
+
+const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
+  className = "",
+}) => {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [maxScroll, setMaxScroll] = useState(0);
+
+  useEffect(() => {
+    const updateScrollLimits = () => {
+      if (carouselRef.current) {
+        setMaxScroll(
+          carouselRef.current.scrollWidth - carouselRef.current.clientWidth
+        );
+      }
+    };
+
+    // Initial update
+    updateScrollLimits();
+
+    // Update on resize
+    window.addEventListener("resize", updateScrollLimits);
+
+    return () => {
+      window.removeEventListener("resize", updateScrollLimits);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      setScrollPosition(carouselRef.current.scrollLeft);
+    }
+  };
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      const cardWidth = 295 + 16; // Card width + gap
+      const newPosition = Math.max(scrollPosition - cardWidth, 0);
+      carouselRef.current.scrollTo({
+        left: newPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      const cardWidth = 295 + 16; // Card width + gap
+      const newPosition = Math.min(scrollPosition + cardWidth, maxScroll);
+      carouselRef.current.scrollTo({
+        left: newPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Add scroll event listener to update position
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      carousel.addEventListener("scroll", handleScroll);
+      return () => {
+        carousel.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
+  const handleBuyButtonClick = (productId: number) => {
+    // This would be connected to an actual purchase flow
+    console.log(`Buy button clicked for product ${productId}`);
+    window.open("https://mytelkomsel.com", "_blank");
+  };
+
+  return (
+    <section className={`kuota-section ${className}`}>
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="kuota-header">
+          <h2 className="kuota-title !font-ohno !font-bold ">
+            KUOTA KHUSUS KOREA KAJA
+          </h2>
+        </div>
+
+        {/* Product Carousel */}
+        <div className="product-carousel">
+          {/* Left Navigation Button */}
+          <button
+            className="nav-button"
+            onClick={scrollLeft}
+            aria-label="Previous products"
+            disabled={scrollPosition <= 0}
+            style={{ opacity: scrollPosition <= 0 ? 0.5 : 1 }}
+          >
+            <img src={chevronLeftIcon} alt="Previous" width="9" height="16" />
+          </button>
+
+          {/* Carousel Container */}
+          <div
+            className="carousel-container"
+            ref={carouselRef}
+            onScroll={handleScroll}
+          >
+            {productData.map((product) => (
+              <div key={product.id} className="product-card">
+                {/* Ribbon */}
+                <div className="ribbon">
+                  <div className="ribbon-content font-semibold">
+                    {product.ribbon}
+                  </div>
+                  <img
+                    src={ribbonTailIcon}
+                    className="ribbon-tail"
+                    alt=""
+                    width="24"
+                    height="36"
+                  />
+                </div>
+
+                {/* Product Content */}
+                <div className="product-content">
+                  {/* Package Information */}
+                  <div className="mt-4 md:mt-12">
+                    <div className="package-period">
+                      <span className="data-amount">{product.dataAmount}</span>
+                      <img
+                        src={dividerIcon}
+                        className="period-divider"
+                        alt="/"
+                      />
+                      <span className="period">{product.period}</span>
+                    </div>
+
+                    <div className="price-container flex flex-row items-center gap-2">
+                      <span className="current-price font-semibold">
+                        {product.currentPrice}
+                      </span>
+                      <span className="original-price">
+                        {product.originalPrice}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Features List */}
+                  <div className="features-list">
+                    {product.features.map((feature, index) => (
+                      <div key={index} className="feature-item">
+                        <img src={checkIcon} className="feature-check" alt="" />
+                        <div className="feature-text">
+                          <span className="feature-label">{feature.label}</span>
+                          <span className="feature-value">{feature.value}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Buy Button */}
+                  <button
+                    className="buy-button"
+                    onClick={() => handleBuyButtonClick(product.id)}
+                  >
+                    Beli Sekarang!
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Navigation Button */}
+          <button
+            className="nav-button "
+            onClick={scrollRight}
+            aria-label="Next products"
+            disabled={scrollPosition >= maxScroll}
+            style={{ opacity: scrollPosition >= maxScroll ? 0.5 : 1 }}
+          >
+            <img src={chevronRightIcon} alt="Next" width="9" height="16" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default KuotaKoreaKajaSection;

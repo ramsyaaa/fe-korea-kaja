@@ -1,0 +1,282 @@
+/* Kuota Korea Kaja Section Styles */
+.kuota-section {
+  padding: 40px 0;
+}
+
+.kuota-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.kuota-title {
+  
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.167em;
+  letter-spacing: 0.83%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: -3px 3px 0px rgba(66, 0, 66, 1);
+  padding: 0 16px;
+}
+
+.product-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 48px; /* Increased padding to make room for buttons */
+}
+
+.nav-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.05), 
+              0px 1px 18px 0px rgba(0, 0, 0, 0.05), 
+              0px 6px 10px 0px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  z-index: 2;
+  position: absolute;
+  top: 45%;
+  
+}
+
+.nav-button img {
+  width: 9px;
+  height: 16px;
+}
+
+.nav-button:hover {
+  background-color: #f5f5f5;
+  border: none
+}
+
+.nav-button:focus {
+    border: none;
+    outline: none;
+}
+
+.nav-button:first-of-type {
+  left: -16px; /* Position left button */
+}
+
+.nav-button:last-of-type {
+  right: -16px; /* Position right button */
+}
+
+.carousel-container {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  position: relative;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding: 8px 0; /* Add padding for better visual appearance */
+}
+
+.product-card {
+  width: 295px;
+  min-width: 295px;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05),
+              0px 3px 4px rgba(0, 0, 0, 0.05),
+              0px 3px 3px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow: hidden;
+}
+
+.ribbon {
+  display: flex;
+  align-items: stretch;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  height: 36px;
+}
+
+.ribbon-content {
+  background-color: #2E3092;
+  color: white;
+  padding: 8px 8px 8px 16px;
+  
+  font-size: 14px;
+  line-height: 1.36em;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.ribbon-tail {
+  height: 100%;
+  width: 24px;
+  display: block;
+}
+
+.product-content {
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.package-period {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.data-amount {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 40px;
+  line-height: 1em;
+  letter-spacing: 0.25%;
+  color: #00BCF1;
+  font-weight: 700;
+}
+
+.period-divider {
+  color: #00BCF1;
+}
+
+.period {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 20px;
+  line-height: 1.4em;
+  color: #00BCF1;
+}
+
+.price-container {
+  display: flex;
+
+}
+
+.current-price {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 28px;
+  line-height: 1.32em;
+  letter-spacing: 0.36%;
+  color: #1F2D3D;
+}
+
+.original-price {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 13px;
+  line-height: 1.54em;
+  color: #6A7481;
+  text-decoration: line-through;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-check {
+  width: 16px;
+  height: 16px;
+  color: #00BCF1;
+}
+
+.feature-text {
+  display: flex;
+  gap: 4px;
+}
+
+.feature-label {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 13px;
+  line-height: 1.54em;
+  color: #1F2D3D;
+}
+
+.feature-value {
+  font-family: 'Gilroy', sans-serif;
+  font-size: 13px;
+  line-height: 1.54em;
+  color: #F7208F;
+}
+
+.buy-button {
+  margin-top: 16px;
+  background-color: #F7208F;
+  color: white;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-family: 'Gilroy', sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0.5%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+  background-color: #d71b7e;
+}
+
+@media (max-width: 767px) {
+  .kuota-section {
+    padding: 24px 0;
+  }
+  
+  .kuota-title {
+    font-size: 24px;
+    text-shadow: -2px 2px 0px rgba(66, 0, 66, 1);
+  }
+  
+  .product-carousel {
+    padding: 0 12px;
+    gap: 12px;
+  }
+  
+  .nav-button {
+    display: none; /* Hide navigation buttons on mobile */
+  }
+  
+  .carousel-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    padding: 8px 0;
+    gap: 12px;
+  }
+  
+  .product-card {
+    min-width: 295px;
+    flex-shrink: 0;
+    margin-right: 12px; /* Add margin to create space between cards */
+  }
+  
+  .product-card:last-child {
+    margin-right: 0;
+  }
+}

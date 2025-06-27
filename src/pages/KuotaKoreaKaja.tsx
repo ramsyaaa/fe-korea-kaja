@@ -3,6 +3,7 @@ import bgPlaydance from "../assets/images/bg/bg-playdance.jpg";
 import bgSnow from "../assets/images/bg/bg-snow.png";
 import CTASection from "../components/CTASection";
 import HowToSection from "../components/HowToSection";
+import KuotaKoreaKajaSection from "../components/KuotaKoreaKajaSection";
 import PartnershipSection from "../components/PartnershipSection";
 import MainLayout from "../layouts/MainLayout";
 
@@ -26,10 +27,10 @@ const KuotaKoreaKaja: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-
-      <PartnershipSection className="md:mt-10 mt-8" type="kuota-korea-kaja" />
+      <PartnershipSection className="md:mt-24 mt-16" type="kuota-korea-kaja" />
+      {/* Kuota Korea Kaja Section */}
+      <KuotaKoreaKajaSection className="md:mt-10 mt-8" />
       {/* How To Section */}
-
       <HowToSection className="md:mt-24 mt-16" />
 
       {/* CTA Section */}
