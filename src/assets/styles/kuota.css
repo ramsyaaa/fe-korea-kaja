@@ -25,10 +25,12 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1060px; /* Increased width to accommodate arrows + 3 cards + gaps */
   margin: 0 auto;
   position: relative;
-  padding: 0 48px; /* Increased padding to make room for buttons */
+  padding: 0 60px; /* Increased padding to make room for buttons */
+  box-sizing: border-box;
+  overflow: visible; /* Show everything including arrows */
 }
 
 .nav-button {
@@ -66,37 +68,48 @@
 }
 
 .nav-button:first-of-type {
-  left: -16px; /* Position left button */
+  left: 16px; /* Position left button */
 }
 
 .nav-button:last-of-type {
-  right: -16px; /* Position right button */
+  right: 16px; /* Position right button */
 }
 
 .carousel-container {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   width: 100%;
   position: relative;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory; /* Use mandatory for better alignment */
   gap: 24px;
   padding: 8px 0; /* Add padding for better visual appearance */
+  margin: 0 auto; /* Center the carousel */
+  justify-content: flex-start; /* Start alignment for better scrolling */
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.carousel-container::-webkit-scrollbar {
+  display: none;
 }
 
 .product-card {
   width: 295px;
   min-width: 295px;
+  max-width: 295px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05),
               0px 3px 4px rgba(0, 0, 0, 0.05),
               0px 3px 3px rgba(0, 0, 0, 0.1);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  scroll-snap-align: center; /* Center alignment for better viewing */
   position: relative;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent cards from shrinking */
 }
 
 .ribbon {
@@ -243,6 +256,27 @@
   background-color: #d71b7e;
 }
 
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.carousel-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-indicator.active {
+  background-color: #FFFFFF;
+  transform: scale(1.25);
+}
+
 @media (max-width: 767px) {
   .kuota-section {
     padding: 24px 0;
@@ -254,8 +288,9 @@
   }
   
   .product-carousel {
-    padding: 0 12px;
-    gap: 12px;
+    padding: 0 16px;
+    max-width: 100%;
+    overflow: visible;
   }
   
   .nav-button {
@@ -264,19 +299,32 @@
   
   .carousel-container {
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory; /* Keep mandatory on mobile for single-card scrolling */
     width: 100%;
     padding: 8px 0;
-    gap: 12px;
+    gap: 16px;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 16px; /* Add padding to account for scroll indicators on some devices */
   }
   
   .product-card {
-    min-width: 295px;
+    min-width: 280px; /* Slightly smaller on mobile */
+    max-width: 280px;
     flex-shrink: 0;
-    margin-right: 12px; /* Add margin to create space between cards */
+    scroll-snap-align: center; /* Center alignment works better on mobile */
+    margin-right: 0;
   }
   
   .product-card:last-child {
-    margin-right: 0;
+    margin-right: 16px; /* Add space after last card */
+  }
+  
+  .carousel-indicators {
+    display: none;
+  }
+  
+  .indicator-dots {
+    display: none; /* Hide indicators on mobile */
   }
 }

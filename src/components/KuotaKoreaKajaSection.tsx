@@ -109,12 +109,23 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
 
+  // Constants for card layout
+  const cardWidth = 295;
+  const cardGap = 24;
+  const cardsPerView = 3;
+
   useEffect(() => {
     const updateScrollLimits = () => {
       if (carouselRef.current) {
-        setMaxScroll(
-          carouselRef.current.scrollWidth - carouselRef.current.clientWidth
-        );
+        const containerWidth = carouselRef.current.clientWidth;
+        const totalContentWidth = carouselRef.current.scrollWidth;
+
+        setMaxScroll(Math.max(0, totalContentWidth - containerWidth));
+
+        // If all items fit, no need for scroll buttons
+        if (containerWidth >= totalContentWidth) {
+          setMaxScroll(0);
+        }
       }
     };
 
@@ -137,8 +148,9 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      const cardWidth = 295 + 16; // Card width + gap
-      const newPosition = Math.max(scrollPosition - cardWidth, 0);
+      const cardGroupWidth =
+        cardWidth * cardsPerView + cardGap * (cardsPerView - 1);
+      const newPosition = Math.max(scrollPosition - cardGroupWidth, 0);
       carouselRef.current.scrollTo({
         left: newPosition,
         behavior: "smooth",
@@ -148,8 +160,9 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      const cardWidth = 295 + 16; // Card width + gap
-      const newPosition = Math.min(scrollPosition + cardWidth, maxScroll);
+      const cardGroupWidth =
+        cardWidth * cardsPerView + cardGap * (cardsPerView - 1);
+      const newPosition = Math.min(scrollPosition + cardGroupWidth, maxScroll);
       carouselRef.current.scrollTo({
         left: newPosition,
         behavior: "smooth",
@@ -162,11 +175,43 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
     const carousel = carouselRef.current;
     if (carousel) {
       carousel.addEventListener("scroll", handleScroll);
+
+      // Add event to align scroll position when scrolling stops
+      let scrollTimeout: number;
+      const handleScrollEnd = () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = window.setTimeout(() => {
+          // Calculate the closest multiple of pageWidth
+          if (carousel) {
+            const currentPosition = carousel.scrollLeft;
+            const cardGroupWidth =
+              cardWidth * cardsPerView + cardGap * (cardsPerView - 1);
+            const closestPage =
+              Math.round(currentPosition / cardGroupWidth) * cardGroupWidth;
+
+            // Only do this adjustment when scrolling naturally (not from button clicks)
+            if (
+              Math.abs(currentPosition - closestPage) > 5 &&
+              Math.abs(currentPosition - scrollPosition) < cardGroupWidth / 2
+            ) {
+              carousel.scrollTo({
+                left: closestPage,
+                behavior: "smooth",
+              });
+            }
+          }
+        }, 150); // Wait a bit after scrolling stops
+      };
+
+      carousel.addEventListener("scroll", handleScrollEnd);
+
       return () => {
         carousel.removeEventListener("scroll", handleScroll);
+        carousel.removeEventListener("scroll", handleScrollEnd);
+        clearTimeout(scrollTimeout);
       };
     }
-  }, []);
+  }, [scrollPosition, cardWidth, cardsPerView, cardGap]);
 
   const handleBuyButtonClick = (productId: number) => {
     // This would be connected to an actual purchase flow
@@ -203,6 +248,7 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
             ref={carouselRef}
             onScroll={handleScroll}
           >
+            {/* Group cards to simulate sets of 3 for CSS scroll behavior */}
             {productData.map((product) => (
               <div key={product.id} className="product-card">
                 {/* Ribbon */}
@@ -279,6 +325,8 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
             <img src={chevronRightIcon} alt="Next" width="9" height="16" />
           </button>
         </div>
+
+        {/* No Indicator Dots */}
       </div>
     </section>
   );
