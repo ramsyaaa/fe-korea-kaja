@@ -12,12 +12,21 @@ import group502WhiteCircle from "../assets/icons/cta/group502-white-circle.svg";
 // Import title images
 import ctaTitleDesktop from "../assets/images/cta/cta-title-desktop.png";
 import ctaTitleMobile from "../assets/images/cta/cta-title-mobile.png";
+
+import ctaTitleKuotaDesktop from "../assets/images/cta/cta-kuota-desktop.png";
+import ctaTitleKuotaMobile from "../assets/images/cta/cta-kuota-mobile.png";
+
 import bgSnow from "../assets/images/bg/bg-small-snow.png";
 interface CTASectionProps {
   className?: string;
+  type?: "kuota-korea-kaja" | "random-play-dance";
 }
 
-const CTASection: React.FC<CTASectionProps> = ({ className = "" }) => {
+const CTASection: React.FC<CTASectionProps> = ({ className = "", type }) => {
+  const titleDesktop =
+    type === "kuota-korea-kaja" ? ctaTitleKuotaDesktop : ctaTitleDesktop;
+  const titleMobile =
+    type === "kuota-korea-kaja" ? ctaTitleKuotaMobile : ctaTitleMobile;
   const handleRegistration = () => {
     // Replace this URL with the actual registration URL
     window.open("https://go.byu.id/koreakaja", "_blank");
@@ -84,13 +93,13 @@ const CTASection: React.FC<CTASectionProps> = ({ className = "" }) => {
             <div className="cta-title-container">
               {/* Desktop version */}
               <img
-                src={ctaTitleDesktop}
+                src={titleDesktop}
                 alt="DAFTAR SEKARANG & DAPATKAN KESEMPATAN TRIP KE KOREA!"
                 className="hidden md:block w-auto"
               />
               {/* Mobile version */}
               <img
-                src={ctaTitleMobile}
+                src={titleMobile}
                 alt="DAFTAR SEKARANG & DAPATKAN KESEMPATAN TRIP KE KOREA!"
                 className="block md:hidden w-auto"
               />

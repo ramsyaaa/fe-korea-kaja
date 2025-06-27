@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import FinalistSection from "src/components/FinalistSection";
 import bgPlaydance from "../assets/images/bg/bg-playdance.jpg";
 import bgSnow from "../assets/images/bg/bg-snow.png";
 import CTASection from "../components/CTASection";
-import GallerySection from "../components/GallerySection";
 import HowToSection from "../components/HowToSection";
 import PartnershipSection from "../components/PartnershipSection";
-import ScheduleSection from "../components/ScheduleSection";
 import MainLayout from "../layouts/MainLayout";
 
 const KuotaKoreaKaja: React.FC = () => {
@@ -34,20 +31,12 @@ const KuotaKoreaKaja: React.FC = () => {
       {/* How To Section */}
 
       <HowToSection className="md:mt-24 mt-16" />
-      {/* Schedule Section */}
-      <ScheduleSection className="md:mt-24 mt-16" />
-
-      {/* Eligible Section */}
-      {/* <EligibleSection className="md:mt-24 mt-16" /> */}
-
-      {/* Finalist Section */}
-      <FinalistSection />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" />
-
-      {/* Gallery Section */}
-      <GallerySection className="md:mt-24 mt-16" />
+      <CTASection
+        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
+        type="kuota-korea-kaja"
+      />
     </MainLayout>
   );
 };
