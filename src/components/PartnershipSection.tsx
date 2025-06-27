@@ -3,21 +3,43 @@ import "../assets/styles/partnership.css";
 import partnershipDesc from "../assets/images/partnership/partnership-desc.png";
 import partnershipAsset from "../assets/images/partnership/partnership-asset.png";
 import partnershipKoreaKaja from "../assets/images/partnership/partnership-koreakaja.png";
+import partnershipKuotaKoreaKaja from "../assets/images/partnership/partnership-kuota-korea-kaja.png";
 // Mobile assets
 import partnershipKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-koreakaja-mobile.png";
 import partnershipDescMobile from "../assets/images/partnership/mobile/partnership-desc-mobile.png";
 import partnershipAssetMobile from "../assets/images/partnership/mobile/partnership-asset-mobile.png";
-
+import partnershipKuotaKoreaKajaDesc from "../assets/images/partnership/partnership-desc-kuota-korea-kaja-desktop.png";
+import partnershipKuotaKoreaKajaMobileDesc from "../assets/images/partnership/mobile/partnership-desc-kuota-korea-kaja-mobile.png";
+import partnershipKuotaKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-kuota-korea-kaja-mobile.png";
 interface PartnershipSectionProps {
   className?: string;
+  type?: "kuota-korea-kaja" | "random-play-dance";
 }
 
 const PartnershipSection: React.FC<PartnershipSectionProps> = ({
   className = "",
+  type,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
+  const illustrationDesktop =
+    type === "kuota-korea-kaja"
+      ? partnershipKuotaKoreaKaja
+      : partnershipKoreaKaja;
+  const illustrationMobile =
+    type === "kuota-korea-kaja"
+      ? partnershipKuotaKoreaKajaMobile
+      : partnershipKoreaKajaMobile;
+  const labelBannerDesktop =
+    type === "kuota-korea-kaja"
+      ? partnershipKuotaKoreaKajaDesc
+      : partnershipDesc;
+
+  const labelBannerMobile =
+    type === "kuota-korea-kaja"
+      ? partnershipKuotaKoreaKajaMobileDesc
+      : partnershipDescMobile;
   // Original design dimensions
   const originalWidth = 1440; // Based on Figma frame width
   const originalHeight = 807;
@@ -94,7 +116,7 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
         {/* Korea Kaja Image - Left Side */}
         <div className="absolute" style={getScaledStyles(elements.koreaKaja)}>
           <img
-            src={partnershipKoreaKaja}
+            src={illustrationDesktop}
             alt="Korea Kaja Logo"
             className="w-full h-full object-contain"
           />
@@ -102,7 +124,7 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
         {/* Description Image - Right Side */}
         <div className="absolute" style={getScaledStyles(elements.description)}>
           <img
-            src={partnershipDesc}
+            src={labelBannerDesktop}
             alt="Partnership Description"
             className="w-full h-full object-contain"
           />
@@ -130,13 +152,13 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
         }}
       >
         <img
-          src={partnershipKoreaKajaMobile}
+          src={illustrationMobile}
           alt="Korea Kaja Logo"
           className="partnership-korea-kaja-mobile"
         />
 
         <img
-          src={partnershipDescMobile}
+          src={labelBannerMobile}
           alt="Partnership Description"
           className="partnership-desc-mobile"
         />
