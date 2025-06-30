@@ -231,7 +231,7 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
           <img
             src={title}
             alt="Kuota Korea Kaja"
-            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.8] scale-100"
+            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.7] scale-100"
           />
         </div>
 

@@ -4,6 +4,8 @@ import partnershipDesc from "../assets/images/partnership/partnership-desc.png";
 import partnershipAsset from "../assets/images/partnership/partnership-asset.png";
 import partnershipKoreaKaja from "../assets/images/partnership/partnership-koreakaja.png";
 import partnershipKuotaKoreaKaja from "../assets/images/partnership/partnership-kuota-korea-kaja.png";
+import partnershipUstore from "../assets/images/partnership/merchUstore/partnership-ustore.png";
+import partnershipUstoreDesc from "../assets/images/partnership/merchUstore/merch-ustore-desc.png";
 // Mobile assets
 import partnershipKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-koreakaja-mobile.png";
 import partnershipDescMobile from "../assets/images/partnership/mobile/partnership-desc-mobile.png";
@@ -11,9 +13,11 @@ import partnershipAssetMobile from "../assets/images/partnership/mobile/partners
 import partnershipKuotaKoreaKajaDesc from "../assets/images/partnership/partnership-desc-kuota-korea-kaja-desktop.png";
 import partnershipKuotaKoreaKajaMobileDesc from "../assets/images/partnership/mobile/partnership-desc-kuota-korea-kaja-mobile.png";
 import partnershipKuotaKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-kuota-korea-kaja-mobile.png";
+import partnershipUstoreMobile from "../assets/images/partnership/merchUstore/mobile/partnership-ustore-mobile.png";
+import partnershipUstoreMobileDesc from "../assets/images/partnership/merchUstore/mobile/merch-ustore-desc-mobile.png";
 interface PartnershipSectionProps {
   className?: string;
-  type?: "kuota-korea-kaja" | "random-play-dance";
+  type?: "kuota-korea-kaja" | "random-play-dance" | "merch-ustore";
 }
 
 const PartnershipSection: React.FC<PartnershipSectionProps> = ({
@@ -26,19 +30,27 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
   const illustrationDesktop =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKaja
+      : type === "merch-ustore"
+      ? partnershipUstore
       : partnershipKoreaKaja;
   const illustrationMobile =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKajaMobile
+      : type === "merch-ustore"
+      ? partnershipUstoreMobile
       : partnershipKoreaKajaMobile;
   const labelBannerDesktop =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKajaDesc
+      : type === "merch-ustore"
+      ? partnershipUstoreDesc
       : partnershipDesc;
 
   const labelBannerMobile =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKajaMobileDesc
+      : type === "merch-ustore"
+      ? partnershipUstoreMobileDesc
       : partnershipDescMobile;
   // Original design dimensions
   const originalWidth = 1440; // Based on Figma frame width
