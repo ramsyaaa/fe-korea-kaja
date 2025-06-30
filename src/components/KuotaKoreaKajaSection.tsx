@@ -5,7 +5,8 @@ import dividerIcon from "../assets/icons/kuota/divider.svg";
 import chevronLeftIcon from "../assets/icons/kuota/chevron-left.svg";
 import chevronRightIcon from "../assets/icons/kuota/chevron-right.svg";
 import ribbonTailIcon from "../assets/icons/kuota/ribbon-tail.svg";
-
+import title from "../assets/images/titles/kuota-korea-kaja-desktop.png";
+import { t } from "node_modules/framer-motion/dist/types.d-B_QPEvFK";
 // Define the product data
 const productData = [
   {
@@ -218,29 +219,41 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
     console.log(`Buy button clicked for product ${productId}`);
     window.open("https://mytelkomsel.com", "_blank");
   };
-
+  console.log({ scrollPosition });
   return (
     <section className={`kuota-section ${className}`}>
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="kuota-header">
-          <h2 className="kuota-title !font-ohno !font-bold ">
+          {/* <h2 className="kuota-title !font-ohno !font-bold ">
             KUOTA KHUSUS KOREA KAJA
-          </h2>
+          </h2> */}
+          <img
+            src={title}
+            alt="Kuota Korea Kaja"
+            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.8] scale-100"
+          />
         </div>
 
         {/* Product Carousel */}
         <div className="product-carousel">
           {/* Left Navigation Button */}
-          <button
+          {/* <button
             className="nav-button"
             onClick={scrollLeft}
             aria-label="Previous products"
             disabled={scrollPosition <= 0}
             style={{ opacity: scrollPosition <= 0 ? 0.5 : 1 }}
+          > */}
+          <div
+            onClick={scrollLeft}
+            className={`nav-button hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
+              scrollPosition <= 0 ? "opacity-0 hidden" : "opacity-100"
+            }`}
+            aria-label="Previous slide"
           >
             <img src={chevronLeftIcon} alt="Previous" width="9" height="16" />
-          </button>
+          </div>
 
           {/* Carousel Container */}
           <div
@@ -268,7 +281,7 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
                 {/* Product Content */}
                 <div className="product-content">
                   {/* Package Information */}
-                  <div className="mt-4 md:mt-12">
+                  <div className="mt-12">
                     <div className="package-period">
                       <span className="data-amount">{product.dataAmount}</span>
                       <img
@@ -315,15 +328,24 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
           </div>
 
           {/* Right Navigation Button */}
-          <button
+          {/* <button
             className="nav-button "
             onClick={scrollRight}
             aria-label="Next products"
             disabled={scrollPosition >= maxScroll}
             style={{ opacity: scrollPosition >= maxScroll ? 0.5 : 1 }}
+          > */}
+          <div
+            onClick={scrollRight}
+            className={`nav-button hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 items-center justify-center  cursor-pointer ${
+              scrollPosition >= maxScroll
+                ? "opacity-0 invisible"
+                : "opacity-100 visible"
+            }`}
+            aria-label="Next slide"
           >
             <img src={chevronRightIcon} alt="Next" width="9" height="16" />
-          </button>
+          </div>
         </div>
 
         {/* No Indicator Dots */}
