@@ -65,7 +65,7 @@
 .reward-content {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   gap: 12px;
 }
 
@@ -94,8 +94,9 @@
 .reward-details {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 4px;
   width: 315px;
+  justify-content: center;
 }
 
 .reward-info {
@@ -136,7 +137,7 @@
 
 .divider-line {
   width: 0px;
-  height: 16px;
+  height: 24px;
   border-left: 1px solid #1F2D3D;
   margin: 0;
 }
@@ -205,6 +206,7 @@
 
   .reward-details {
     width: auto;
+    gap: 16px
   }
 
   .service-title {
@@ -235,7 +237,7 @@
 @media (max-width: 1024px) and (min-width: 769px) {
   .reward-spesial-section {
     padding: 50px 54px;
-    background: linear-gradient(180deg, #F8F9FA 0%, #E9ECEF 100%);
+    /* background: linear-gradient(180deg, #F8F9FA 0%, #E9ECEF 100%); */
   }
 
   .reward-title {

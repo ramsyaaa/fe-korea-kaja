@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import bgTukarUcoin from "../assets/images/bg/bg-tukar-ucoin.jpg";
+import RewardSpesialKoreaKajaSection from "src/components/RewardSpesialKoreaKajaSection";
 import bgSnow from "../assets/images/bg/bg-snow.png";
+import bgTukarUcoin from "../assets/images/bg/bg-tukar-ucoin.jpg";
 import CTASection from "../components/CTASection";
 import HowToSection from "../components/HowToSection";
-import KuotaKoreaKajaSection from "../components/KuotaKoreaKajaSection";
 import PartnershipSection from "../components/PartnershipSection";
 import MainLayout from "../layouts/MainLayout";
-import MerchUstoreSection from "src/components/MerchUstoreSection";
-import RewardPage from "./RewardPage";
-import RewardSpesialKoreaKajaSection from "src/components/RewardSpesialKoreaKajaSection";
 
 const TukarUCoin: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | string[]>([]);
@@ -39,7 +36,7 @@ const TukarUCoin: React.FC = () => {
       {/* CTA Section */}
       <CTASection
         className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
-        type="kuota-korea-kaja"
+        type="tukar-ucoin"
       />
     </MainLayout>
   );

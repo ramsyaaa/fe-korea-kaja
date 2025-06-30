@@ -1,35 +1,16 @@
 import React from "react";
 import "../assets/styles/reward-spesial.css";
+import title from "../assets/images/titles/title-reward.png";
+import ytIcon from "../assets/icons/youtube.svg";
 
 interface RewardSpesialKoreaKajaSectionProps {
   className?: string;
 }
 
 // YouTube icon SVG component
-const YouTubeIcon: React.FC = () => (
-  <svg
-    width="118"
-    height="118"
-    viewBox="0 0 118 118"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect
-      width="118"
-      height="118"
-      rx="10"
-      fill="white"
-      style={{
-        filter:
-          "drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.05)) drop-shadow(0px 1px 18px rgba(0, 0, 0, 0.05)) drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.05))",
-      }}
-    />
-    {/* YouTube Logo Background */}
-    <rect x="29" y="35" width="60" height="48" rx="12" fill="#FF0000" />
-    {/* YouTube Play Button */}
-    <path d="M48 47.5V70.5L68 59L48 47.5Z" fill="white" />
-  </svg>
-);
+const YouTubeIcon: React.FC = () => {
+  return <img src={ytIcon} alt="YouTube Icon" />;
+};
 
 // Point coin icon SVG component
 const PointIcon: React.FC = () => (
@@ -62,30 +43,44 @@ const PointIcon: React.FC = () => (
 const RewardSpesialKoreaKajaSection: React.FC<
   RewardSpesialKoreaKajaSectionProps
 > = ({ className }) => {
+  const handleBuyButtonClick = () => {
+    // Handle the buy button click event
+    alert("Reward clicked");
+    // You can add your logic here, such as navigating to a purchase page or showing a modal
+  };
   return (
     <section className={`reward-spesial-section ${className}`}>
       <div className="reward-spesial-container">
         {/* Header */}
         <div className="reward-header">
-          <h2 className="reward-title">Reward spesial korea kaja</h2>
+          <img
+            src={title}
+            alt="Kuota Korea Kaja"
+            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.7] scale-100"
+          />
+          {/* <h2 className="reward-title">Reward spesial korea kaja</h2> */}
         </div>
 
         {/* Reward Card */}
-        <div className="reward-card">
+        <div
+          className="reward-card cursor-pointer hover:-translate-y-1 hover:opacity-95 hover:drop-shadow-xl transition-all duration-300"
+          onClick={handleBuyButtonClick}
+        >
           <div className="reward-content">
             {/* YouTube Background Image */}
-            <div className="youtube-background">
+            <YouTubeIcon />
+            {/* <div className="youtube-background">
               <div className="youtube-icon-container">
                 <YouTubeIcon />
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             {/* Reward Details */}
             <div className="reward-details">
               <div className="reward-info">
                 <h3 className="service-title">Youtube</h3>
                 <div className="quota-info">
-                  <span className="quota-amount">20 GB</span>
+                  <span className="quota-amount !font-bold">20 GB</span>
                   <div className="divider-line"></div>
                   <span className="quota-period">30 Hari</span>
                 </div>
@@ -93,7 +88,7 @@ const RewardSpesialKoreaKajaSection: React.FC<
 
               <div className="points-info">
                 <PointIcon />
-                <span className="points-amount">150</span>
+                <span className="points-amount !font-bold">150</span>
               </div>
             </div>
           </div>

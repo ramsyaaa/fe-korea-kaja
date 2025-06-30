@@ -13,20 +13,35 @@ import group502WhiteCircle from "../assets/icons/cta/group502-white-circle.svg";
 import ctaTitleDesktop from "../assets/images/cta/cta-title-desktop.png";
 import ctaTitleMobile from "../assets/images/cta/cta-title-mobile.png";
 
+import ctaTitleMerchUstoreDesktop from "../assets/images/cta/cta-merch-ustore-desktop.png";
+import ctaTitleMerchUstoreMobile from "../assets/images/cta/cta-merch-ustore-mobile.png";
+
 import ctaTitleKuotaDesktop from "../assets/images/cta/cta-kuota-desktop.png";
 import ctaTitleKuotaMobile from "../assets/images/cta/cta-kuota-mobile.png";
 
 import bgSnow from "../assets/images/bg/bg-small-snow.png";
 interface CTASectionProps {
   className?: string;
-  type?: "kuota-korea-kaja" | "random-play-dance";
+  type?:
+    | "kuota-korea-kaja"
+    | "random-play-dance"
+    | "tukar-ucoin"
+    | "merch-ustore";
 }
 
 const CTASection: React.FC<CTASectionProps> = ({ className = "", type }) => {
   const titleDesktop =
-    type === "kuota-korea-kaja" ? ctaTitleKuotaDesktop : ctaTitleDesktop;
+    type === "kuota-korea-kaja"
+      ? ctaTitleKuotaDesktop
+      : type === "tukar-ucoin"
+      ? ctaTitleMerchUstoreDesktop
+      : ctaTitleDesktop;
   const titleMobile =
-    type === "kuota-korea-kaja" ? ctaTitleKuotaMobile : ctaTitleMobile;
+    type === "kuota-korea-kaja"
+      ? ctaTitleKuotaMobile
+      : type === "tukar-ucoin"
+      ? ctaTitleMerchUstoreMobile
+      : ctaTitleMobile;
   const handleRegistration = () => {
     // Replace this URL with the actual registration URL
     window.open("https://go.byu.id/koreakaja", "_blank");
@@ -111,7 +126,13 @@ const CTASection: React.FC<CTASectionProps> = ({ className = "", type }) => {
                 onClick={handleRegistration}
                 className="cta-button font-ohno font-semibold"
               >
-                Daftar Sekarang
+                {type === "kuota-korea-kaja"
+                  ? "Beli Sekarang"
+                  : type === "random-play-dance"
+                  ? "Daftar Sekarang"
+                  : type === "merch-ustore"
+                  ? "Beli Sekarang"
+                  : "Tukar uCoin Sekarang"}
               </button>
             </div>
           </div>

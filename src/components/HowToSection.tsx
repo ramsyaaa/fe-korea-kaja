@@ -39,7 +39,7 @@ const Stepper: React.FC<StepperProps> = ({ currentSlide, totalSlides }) => {
               }`}
             >
               <span
-                className={`text-xs md:text-lg font-gilroy ${
+                className={`text-[13px] md:text-lg font-semibold ${
                   index === currentSlide
                     ? "text-white"
                     : "md:text-white text-[#6A7481]"

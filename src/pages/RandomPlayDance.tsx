@@ -44,7 +44,10 @@ const RandomPlayDance: React.FC = () => {
       <FinalistSection />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" />
+      <CTASection
+        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
+        type="random-play-dance"
+      />
 
       {/* Gallery Section */}
       <GallerySection className="md:mt-24 mt-16" />
