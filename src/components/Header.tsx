@@ -37,7 +37,11 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
           <div className="block cursor-pointer">
-            <img src={logoIcon} alt="Korea Kaja Logo" className="h-12" />
+            <img
+              src={logoIcon}
+              alt="Korea Kaja Logo"
+              className="md:h-[49px] h-[36px] ml-6 md:ml-24"
+            />
           </div>
 
           {/* Navigation */}

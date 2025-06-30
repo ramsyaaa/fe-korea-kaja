@@ -14,7 +14,6 @@ import carouselItem1 from "../assets/images/how-to/carousel-item-1-desktop.png";
 import carouselItem2 from "../assets/images/how-to/carousel-item-2-desktop.png";
 import carouselItem3 from "../assets/images/how-to/carousel-item-3-desktop.png";
 import carouselItem4 from "../assets/images/how-to/carousel-item-4-desktop.png";
-import carouselItemMobile from "../assets/images/how-to/carousel-item-mobile.png";
 
 interface StepperProps {
   currentSlide: number;
@@ -28,7 +27,7 @@ const Stepper: React.FC<StepperProps> = ({ currentSlide, totalSlides }) => {
       <div className="h-[2px] bg-[#B8C1CB] absolute w-full md:w-[610px] z-0"></div>
 
       {/* Steps - match Figma gap of 227px on desktop */}
-      <div className="flex items-center md:gap-x-20 gap-x-24 md:flex md:justify-between md:w-[630px] md:mx-auto z-10">
+      <div className="flex items-center md:gap-x-20 gap-x-[21vw] md:flex md:justify-between md:w-[630px] md:mx-auto z-10">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <div key={index} className="flex items-center justify-center">
             <div
