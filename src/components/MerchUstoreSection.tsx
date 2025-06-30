@@ -103,7 +103,7 @@ const MerchUstoreSection: React.FC<MerchUstoreSectionProps> = ({
         {/* Product Grid */}
         <div className="merch-grid">
           {merchProducts.map((product) => {
-            const isSelected = selectedProducts.includes(product.id);
+            //  const isSelected = selectedProducts.includes(product.id);
 
             return (
               <div
@@ -112,7 +112,7 @@ const MerchUstoreSection: React.FC<MerchUstoreSectionProps> = ({
                 onClick={() => toggleProductSelection(product.id)}
               >
                 {/* Product Image */}
-                <div className="merch-image-container">
+                <div className="merch-image-container rounded-b-md">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -140,6 +140,11 @@ const MerchUstoreSection: React.FC<MerchUstoreSectionProps> = ({
                       <div className="merch-divider"></div>
                       <span className="merch-period">{product.period}</span>
                     </div>
+                  </div>
+                  <div className="merch-price-action">
+                    <span className="merch-price !font-bold">
+                      {product.price}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -6,6 +6,8 @@ import partnershipKoreaKaja from "../assets/images/partnership/partnership-korea
 import partnershipKuotaKoreaKaja from "../assets/images/partnership/partnership-kuota-korea-kaja.png";
 import partnershipUstore from "../assets/images/partnership/merchUstore/partnership-ustore.png";
 import partnershipUstoreDesc from "../assets/images/partnership/merchUstore/merch-ustore-desc.png";
+import partnershipUcoin from "../assets/images/partnership/TukarUCoin/partnership-ucoin.png";
+import partnershipUcoinDesc from "../assets/images/partnership/TukarUCoin/ucoin-ustore-desc.png";
 // Mobile assets
 import partnershipKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-koreakaja-mobile.png";
 import partnershipDescMobile from "../assets/images/partnership/mobile/partnership-desc-mobile.png";
@@ -15,9 +17,15 @@ import partnershipKuotaKoreaKajaMobileDesc from "../assets/images/partnership/mo
 import partnershipKuotaKoreaKajaMobile from "../assets/images/partnership/mobile/partnership-kuota-korea-kaja-mobile.png";
 import partnershipUstoreMobile from "../assets/images/partnership/merchUstore/mobile/partnership-ustore-mobile.png";
 import partnershipUstoreMobileDesc from "../assets/images/partnership/merchUstore/mobile/merch-ustore-desc-mobile.png";
+import partnershipUcoinMobile from "../assets/images/partnership/TukarUCoin/mobile/partnership-ucoin-mobile.png";
+import partnershipUcoinMobileDesc from "../assets/images/partnership/TukarUCoin/mobile/ucoin-desc.png";
 interface PartnershipSectionProps {
   className?: string;
-  type?: "kuota-korea-kaja" | "random-play-dance" | "merch-ustore";
+  type?:
+    | "kuota-korea-kaja"
+    | "random-play-dance"
+    | "merch-ustore"
+    | "tukar-ucoin";
 }
 
 const PartnershipSection: React.FC<PartnershipSectionProps> = ({
@@ -32,18 +40,24 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
       ? partnershipKuotaKoreaKaja
       : type === "merch-ustore"
       ? partnershipUstore
+      : type === "tukar-ucoin"
+      ? partnershipUcoin
       : partnershipKoreaKaja;
   const illustrationMobile =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKajaMobile
       : type === "merch-ustore"
       ? partnershipUstoreMobile
+      : type === "tukar-ucoin"
+      ? partnershipUcoinMobile
       : partnershipKoreaKajaMobile;
   const labelBannerDesktop =
     type === "kuota-korea-kaja"
       ? partnershipKuotaKoreaKajaDesc
       : type === "merch-ustore"
       ? partnershipUstoreDesc
+      : type === "tukar-ucoin"
+      ? partnershipUcoinDesc
       : partnershipDesc;
 
   const labelBannerMobile =
@@ -51,6 +65,8 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({
       ? partnershipKuotaKoreaKajaMobileDesc
       : type === "merch-ustore"
       ? partnershipUstoreMobileDesc
+      : type === "tukar-ucoin"
+      ? partnershipUcoinMobileDesc
       : partnershipDescMobile;
   // Original design dimensions
   const originalWidth = 1440; // Based on Figma frame width

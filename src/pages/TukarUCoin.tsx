@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import bgMerchUstore from "../assets/images/bg/bg-merchUstore.jpg";
+import bgTukarUcoin from "../assets/images/bg/bg-tukar-ucoin.jpg";
 import bgSnow from "../assets/images/bg/bg-snow.png";
 import CTASection from "../components/CTASection";
 import HowToSection from "../components/HowToSection";
@@ -7,14 +7,16 @@ import KuotaKoreaKajaSection from "../components/KuotaKoreaKajaSection";
 import PartnershipSection from "../components/PartnershipSection";
 import MainLayout from "../layouts/MainLayout";
 import MerchUstoreSection from "src/components/MerchUstoreSection";
+import RewardPage from "./RewardPage";
+import RewardSpesialKoreaKajaSection from "src/components/RewardSpesialKoreaKajaSection";
 
-const MerchUStore: React.FC = () => {
+const TukarUCoin: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | string[]>([]);
 
   useEffect(() => {
     const handleResize = () => {
       // For mobile use a single background, for desktop use multiple overlaid backgrounds
-      setBackgroundImage([bgSnow, bgMerchUstore]);
+      setBackgroundImage([bgSnow, bgTukarUcoin]);
     };
 
     handleResize();
@@ -28,10 +30,9 @@ const MerchUStore: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 mt-16" type="merch-ustore" />
+      <PartnershipSection className="md:mt-24 mt-16" type="tukar-ucoin" />
 
-      <MerchUstoreSection className="md:mt-24 mt-16" />
-
+      <RewardSpesialKoreaKajaSection className="md:mt-24 mt-16" />
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />
 
@@ -44,4 +45,4 @@ const MerchUStore: React.FC = () => {
   );
 };
 
-export default MerchUStore;
+export default TukarUCoin;
