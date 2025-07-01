@@ -6,6 +6,7 @@ import CTASection from "../components/CTASection";
 import HowToSection from "../components/HowToSection";
 import PartnershipSection from "../components/PartnershipSection";
 import MainLayout from "../layouts/MainLayout";
+import FAQ from "src/components/FAQ";
 
 const TukarUCoin: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | string[]>([]);
@@ -34,10 +35,9 @@ const TukarUCoin: React.FC = () => {
       <HowToSection className="md:mt-24 mt-16" />
 
       {/* CTA Section */}
-      <CTASection
-        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
-        type="tukar-ucoin"
-      />
+      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="tukar-ucoin" />
+
+      <FAQ className="md:mt-24 mt-16" screen="uCoin" />
     </MainLayout>
   );
 };
