@@ -5,12 +5,13 @@ import RandomPlayDance from "./pages/RandomPlayDance";
 import TukarUCoin from "./pages/TukarUCoin";
 
 import NotFoundPage from "./pages/NotFoundPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<h2>{"Halaman Utama Korea Kaja"}</h2>} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/random-play-dance" element={<RandomPlayDance />} />
         <Route path="/kuota-korea-kaja" element={<KuotaKoreaKaja />} />
         <Route path="/merch-ustore" element={<MerchUStore />} />

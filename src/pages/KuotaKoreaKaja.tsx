@@ -6,6 +6,7 @@ import HowToSection from "../components/HowToSection";
 import KuotaKoreaKajaSection from "../components/KuotaKoreaKajaSection";
 import PartnershipSection from "../components/PartnershipSection";
 import MainLayout from "../layouts/MainLayout";
+import FAQ from "src/components/FAQ";
 
 const KuotaKoreaKaja: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | string[]>([]);
@@ -34,10 +35,8 @@ const KuotaKoreaKaja: React.FC = () => {
       <HowToSection className="md:mt-24 mt-16" />
 
       {/* CTA Section */}
-      <CTASection
-        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
-        type="kuota-korea-kaja"
-      />
+      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="kuota-korea-kaja" />
+      <FAQ className="md:mt-24 mt-16" screen="main" />
     </MainLayout>
   );
 };

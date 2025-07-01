@@ -8,6 +8,7 @@ import HowToSection from "../components/HowToSection";
 import PartnershipSection from "../components/PartnershipSection";
 import ScheduleSection from "../components/ScheduleSection";
 import MainLayout from "../layouts/MainLayout";
+import FAQ from "src/components/FAQ";
 
 const RandomPlayDance: React.FC = () => {
   const [backgroundImage, setBackgroundImage] = useState<string | string[]>([]);
@@ -44,13 +45,12 @@ const RandomPlayDance: React.FC = () => {
       <FinalistSection />
 
       {/* CTA Section */}
-      <CTASection
-        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
-        type="random-play-dance"
-      />
+      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="random-play-dance" />
 
       {/* Gallery Section */}
       <GallerySection className="md:mt-24 mt-16" />
+
+      <FAQ className="md:mt-24 mt-16" screen="random-play-dance" />
     </MainLayout>
   );
 };

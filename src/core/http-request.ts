@@ -1,0 +1,156 @@
+import axios, { AxiosRequestConfig } from "axios";
+import { API_SOURCE, AxiosHTTPError, EndpointConfig } from "src/types/network/container";
+import { BASE_API_URL, BASE_CMS_URL } from "./env";
+import { serializeParam } from "src/utils";
+
+/**
+ * Create axios instance with default configuration
+ */
+const httpRequest = axios.create({
+  timeout: 30000,
+});
+
+/**
+ * Request interceptor handler
+ */
+const requestHandler = async (requestConfig: any) => {
+  return requestConfig;
+};
+
+/**
+ * Error interceptor handler
+ */
+const errorHandler = (error: AxiosHTTPError) => {
+  return Promise.reject({
+    statusCode: error.response?.status,
+    message: JSON.stringify(error?.response?.data),
+  });
+};
+
+// Apply interceptors
+httpRequest.interceptors.request.use(
+  (request: any) => requestHandler(request),
+  (error: AxiosHTTPError) => errorHandler(error),
+);
+
+/**
+ * Generate base URL based on API source
+ */
+const generateBaseURL = (source: API_SOURCE, url: string) => {
+  if (source === "api") {
+    return `${BASE_API_URL}${url}`;
+  }
+
+  return `${BASE_CMS_URL}${url}`;
+};
+
+/**
+ * Build complete URL with query parameters
+ */
+const buildUrl = (endpoint: EndpointConfig, queryParam: Record<string, any>) => {
+  let url = generateBaseURL(endpoint?.source, endpoint?.endpoint);
+  if (queryParam && Object.keys(queryParam).length > 0) {
+    url = url + "?" + serializeParam(queryParam);
+  }
+  return url;
+};
+
+/**
+ * Handle HTTP GET requests
+ */
+export const get = <T = any>(
+  endpoint: {
+    endpoint: string;
+    source: API_SOURCE;
+  },
+  queryParam: Record<string, any> = {},
+  config?: AxiosRequestConfig,
+) => {
+  const url = buildUrl(endpoint, queryParam);
+
+  const requestConfig: AxiosRequestConfig = {
+    ...config,
+    headers: {
+      ...config?.headers,
+      "content-type": "application/json",
+    },
+  };
+
+  return httpRequest.get<T>(url, requestConfig);
+};
+
+/**
+ * Handle HTTP POST requests
+ */
+export const post = <T = any>(
+  endpoint: {
+    endpoint: string;
+    source: API_SOURCE;
+  },
+  bodyParam?: Record<string, any>,
+  queryParam: Record<string, any> = {},
+  config?: AxiosRequestConfig,
+) => {
+  const url = buildUrl(endpoint, queryParam);
+
+  const requestConfig: AxiosRequestConfig = {
+    ...config,
+    headers: {
+      ...config?.headers,
+    },
+  };
+
+  return httpRequest.post<T>(url, bodyParam, requestConfig);
+};
+
+/**
+ * Handle HTTP DELETE requests
+ * Note: We use 'apiDelete' instead of 'delete' as the function name since 'delete' is a reserved keyword
+ */
+export const apiDelete = <T = any>(
+  endpoint: {
+    endpoint: string;
+    source: API_SOURCE;
+  },
+  bodyParam?: Record<string, any>,
+  queryParam: Record<string, any> = {},
+  config?: AxiosRequestConfig,
+) => {
+  const url = buildUrl(endpoint, queryParam);
+
+  const requestConfig: AxiosRequestConfig = {
+    ...config,
+    data: bodyParam,
+    headers: {
+      ...config?.headers,
+    },
+  };
+
+  return httpRequest.delete<T>(url, requestConfig);
+};
+
+/**
+ * Handle HTTP PATCH requests
+ */
+export const patch = <T = any>(
+  endpoint: {
+    endpoint: string;
+    source: API_SOURCE;
+  },
+  bodyParam?: Record<string, any>,
+  queryParam: Record<string, any> = {},
+  config?: AxiosRequestConfig,
+) => {
+  const url = buildUrl(endpoint, queryParam);
+
+  const requestConfig: AxiosRequestConfig = {
+    ...config,
+    headers: {
+      ...config?.headers,
+    },
+  };
+
+  return httpRequest.patch<T>(url, bodyParam, requestConfig);
+};
+
+export default httpRequest;
