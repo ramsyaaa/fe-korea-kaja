@@ -36,7 +36,7 @@ const KuotaKoreaKaja: React.FC = () => {
 
       {/* CTA Section */}
       <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="kuota-korea-kaja" />
-      <FAQ className="md:mt-24 mt-16" screen="main" />
+      <FAQ className="md:mt-24 mt-16" screen="korea-kaja" />
     </MainLayout>
   );
 };
