@@ -6,7 +6,7 @@ import chevronLeftIcon from "../assets/icons/kuota/chevron-left.svg";
 import chevronRightIcon from "../assets/icons/kuota/chevron-right.svg";
 import ribbonTailIcon from "../assets/icons/kuota/ribbon-tail.svg";
 import title from "../assets/images/titles/kuota-korea-kaja-desktop.png";
-import { t } from "node_modules/framer-motion/dist/types.d-B_QPEvFK";
+
 // Define the product data
 const productData = [
   {
@@ -247,7 +247,7 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
           > */}
           <div
             onClick={scrollLeft}
-            className={`nav-button hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
+            className={`nav-button bg-green-400 hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
               scrollPosition <= 0 ? "opacity-0 hidden" : "opacity-100"
             }`}
             aria-label="Previous slide"

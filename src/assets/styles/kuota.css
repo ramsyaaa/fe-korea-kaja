@@ -36,7 +36,7 @@
 .nav-button {
   width: 32px;
   height: 32px;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   background-color: #FFFFFF;
@@ -296,7 +296,7 @@
   }
   
   .nav-button {
-    display: none; /* Hide navigation buttons on mobile */
+    /* display: none;  */
   }
   
   .carousel-container {

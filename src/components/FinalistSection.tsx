@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../assets/images/finalist/finalist.css";
 import arrowRight from "../assets/icons/how-to/arrow-right.svg";
-
+import chevronLeftIcon from "../assets/icons/kuota/chevron-left.svg";
+import chevronRightIcon from "../assets/icons/kuota/chevron-right.svg";
 interface FinalistProps {
   name: string;
   username: string;
@@ -184,36 +185,28 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
           </motion.div>
         </div>
 
-        {finalists.length > visibleCount && (
-          <>
-            <div
-              onClick={handlePrev}
-              className={`hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
-                activeIndex === 0
-                  ? "opacity-0 invisible"
-                  : "opacity-100 visible"
-              }`}
-              aria-label="Previous slide"
-            >
-              <img
-                src={arrowRight}
-                alt="Previous"
-                className="w-[32px] h-[32px] transform rotate-180"
-              />
-            </div>
-            <div
-              onClick={handleNext}
-              className={`hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 items-center justify-center  cursor-pointer ${
-                activeIndex >= maxIndex
-                  ? "opacity-0 invisible"
-                  : "opacity-100 visible"
-              }`}
-              aria-label="Next slide"
-            >
-              <img src={arrowRight} alt="Next" className="w-[32px] h-[32px]" />
-            </div>
-          </>
-        )}
+        <>
+          <div
+            onClick={handlePrev}
+            className={`nav-button hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
+              activeIndex === 0 ? "opacity-0 invisible" : "opacity-100 visible"
+            }`}
+            aria-label="Previous slide"
+          >
+            <img src={chevronLeftIcon} alt="Previous" width="9" height="16" />
+          </div>
+          <div
+            onClick={handleNext}
+            className={`nav-button hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 items-center justify-center  cursor-pointer ${
+              activeIndex >= maxIndex
+                ? "opacity-0 invisible"
+                : "opacity-100 visible"
+            }`}
+            aria-label="Next slide"
+          >
+            <img src={chevronRightIcon} alt="Next" width="9" height="16" />
+          </div>
+        </>
       </div>
     </div>
   );
@@ -240,6 +233,21 @@ const FinalistSection: React.FC = () => {
         {
           name: "Kejimin",
           username: "@kejimin",
+          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
+        },
+        {
+          name: "Finalist",
+          username: "@finalist",
+          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
+        },
+        {
+          name: "Finalist",
+          username: "@finalist",
+          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
+        },
+        {
+          name: "Finalist",
+          username: "@finalist",
           photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
         },
         {

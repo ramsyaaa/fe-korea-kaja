@@ -4,12 +4,14 @@ import MerchUStore from "./pages/MerchUStore";
 import RandomPlayDance from "./pages/RandomPlayDance";
 import TukarUCoin from "./pages/TukarUCoin";
 
-import NotFoundPage from "./pages/NotFoundPage";
 import MainPage from "./pages/MainPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/random-play-dance" element={<RandomPlayDance />} />
