@@ -31,72 +31,72 @@ const productData = [
       },
     ],
   },
-  {
-    id: 2,
-    ribbon: "Bonus Disney +",
-    dataAmount: "10 GB",
-    period: "30 hari",
-    currentPrice: "Rp 50.000",
-    originalPrice: "Rp. 120.000",
-    features: [
-      {
-        label: "Kuota Utuh",
-        value: "24 jam",
-      },
-      {
-        label: "Bonus Kuota",
-        value: "8 GB",
-      },
-      {
-        label: "Gratis tiket masuk",
-        value: "byUniverse Jember",
-      },
-    ],
-  },
-  {
-    id: 3,
-    ribbon: "Bonus Disney +",
-    dataAmount: "15 GB",
-    period: "30 hari",
-    currentPrice: "Rp 75.000",
-    originalPrice: "Rp. 150.000",
-    features: [
-      {
-        label: "Kuota Utuh",
-        value: "24 jam",
-      },
-      {
-        label: "Bonus Kuota",
-        value: "12 GB",
-      },
-      {
-        label: "Gratis tiket masuk",
-        value: "byUniverse Jember",
-      },
-    ],
-  },
-  {
-    id: 4,
-    ribbon: "Bonus Disney +",
-    dataAmount: "30 GB",
-    period: "30 hari",
-    currentPrice: "Rp 100.000",
-    originalPrice: "Rp. 200.000",
-    features: [
-      {
-        label: "Kuota Utuh",
-        value: "24 jam",
-      },
-      {
-        label: "Bonus Kuota",
-        value: "15 GB",
-      },
-      {
-        label: "Gratis tiket masuk",
-        value: "byUniverse Jember",
-      },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   ribbon: "Bonus Disney +",
+  //   dataAmount: "10 GB",
+  //   period: "30 hari",
+  //   currentPrice: "Rp 50.000",
+  //   originalPrice: "Rp. 120.000",
+  //   features: [
+  //     {
+  //       label: "Kuota Utuh",
+  //       value: "24 jam",
+  //     },
+  //     {
+  //       label: "Bonus Kuota",
+  //       value: "8 GB",
+  //     },
+  //     {
+  //       label: "Gratis tiket masuk",
+  //       value: "byUniverse Jember",
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 3,
+  //   ribbon: "Bonus Disney +",
+  //   dataAmount: "15 GB",
+  //   period: "30 hari",
+  //   currentPrice: "Rp 75.000",
+  //   originalPrice: "Rp. 150.000",
+  //   features: [
+  //     {
+  //       label: "Kuota Utuh",
+  //       value: "24 jam",
+  //     },
+  //     {
+  //       label: "Bonus Kuota",
+  //       value: "12 GB",
+  //     },
+  //     {
+  //       label: "Gratis tiket masuk",
+  //       value: "byUniverse Jember",
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 4,
+  //   ribbon: "Bonus Disney +",
+  //   dataAmount: "30 GB",
+  //   period: "30 hari",
+  //   currentPrice: "Rp 100.000",
+  //   originalPrice: "Rp. 200.000",
+  //   features: [
+  //     {
+  //       label: "Kuota Utuh",
+  //       value: "24 jam",
+  //     },
+  //     {
+  //       label: "Bonus Kuota",
+  //       value: "15 GB",
+  //     },
+  //     {
+  //       label: "Gratis tiket masuk",
+  //       value: "byUniverse Jember",
+  //     },
+  //   ],
+  // },
 ];
 
 interface KuotaKoreaKajaSectionProps {
@@ -231,33 +231,30 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
           <img
             src={title}
             alt="Kuota Korea Kaja"
-            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.7] scale-100"
+            className="h-auto w-full max-w-[1224px] inline-block md:scale-[0.5] scale-100"
           />
         </div>
 
         {/* Product Carousel */}
         <div className="product-carousel">
-          {/* Left Navigation Button */}
-          {/* <button
-            className="nav-button"
-            onClick={scrollLeft}
-            aria-label="Previous products"
-            disabled={scrollPosition <= 0}
-            style={{ opacity: scrollPosition <= 0 ? 0.5 : 1 }}
-          > */}
-          <div
-            onClick={scrollLeft}
-            className={`nav-button bg-green-400 hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
-              scrollPosition <= 0 ? "opacity-0 hidden" : "opacity-100"
-            }`}
-            aria-label="Previous slide"
-          >
-            <img src={chevronLeftIcon} alt="Previous" width="9" height="16" />
-          </div>
+          {/* Left Navigation Button - only show if more than 1 product */}
+          {productData.length > 1 && (
+            <div
+              onClick={scrollLeft}
+              className={`nav-button bg-green-400 hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8  items-center justify-center cursor-pointer ${
+                scrollPosition <= 0 ? "opacity-0 hidden" : "opacity-100"
+              }`}
+              aria-label="Previous slide"
+            >
+              <img src={chevronLeftIcon} alt="Previous" width="9" height="16" />
+            </div>
+          )}
 
           {/* Carousel Container */}
           <div
-            className="carousel-container"
+            className={`carousel-container ${
+              productData.length === 1 ? "single-card-center" : ""
+            }`}
             ref={carouselRef}
             onScroll={handleScroll}
           >
@@ -327,25 +324,20 @@ const KuotaKoreaKajaSection: React.FC<KuotaKoreaKajaSectionProps> = ({
             ))}
           </div>
 
-          {/* Right Navigation Button */}
-          {/* <button
-            className="nav-button "
-            onClick={scrollRight}
-            aria-label="Next products"
-            disabled={scrollPosition >= maxScroll}
-            style={{ opacity: scrollPosition >= maxScroll ? 0.5 : 1 }}
-          > */}
-          <div
-            onClick={scrollRight}
-            className={`nav-button hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 items-center justify-center  cursor-pointer ${
-              scrollPosition >= maxScroll
-                ? "opacity-0 invisible"
-                : "opacity-100 visible"
-            }`}
-            aria-label="Next slide"
-          >
-            <img src={chevronRightIcon} alt="Next" width="9" height="16" />
-          </div>
+          {/* Right Navigation Button - only show if more than 1 product */}
+          {productData.length > 1 && (
+            <div
+              onClick={scrollRight}
+              className={`nav-button hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 items-center justify-center  cursor-pointer ${
+                scrollPosition >= maxScroll
+                  ? "opacity-0 invisible"
+                  : "opacity-100 visible"
+              }`}
+              aria-label="Next slide"
+            >
+              <img src={chevronRightIcon} alt="Next" width="9" height="16" />
+            </div>
+          )}
         </div>
 
         {/* No Indicator Dots */}
