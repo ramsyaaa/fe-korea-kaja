@@ -3,7 +3,18 @@ import "../assets/styles/merch-ustore.css";
 import titleDesktop from "../assets/images/titles/merch-ustore-title-desktop.png";
 import titleMobile from "../assets/images/titles/merch-ustore-title-mobile.png";
 // Define the product data for Merch UStore
-const merchProducts = [
+type MerchProduct = {
+  id: number;
+  name: string;
+  image: string;
+  quota: string;
+  period: string;
+  price: string;
+  isSelected: boolean;
+  ribbon?: string;
+};
+
+const merchProducts: MerchProduct[] = [
   {
     id: 1,
     name: "Baseus ENCOK WM -01 True Wireless Bluetooth",
@@ -54,6 +65,24 @@ const merchProducts = [
   },
   {
     id: 6,
+    name: "Kabel Data LED Baseus Halo Fast Charging iPhone/Micro USB/Type-C 1M – Baseus Indonesia",
+    image: "https://via.placeholder.com/156x156/e39fd09f/333?text=Cable+2",
+    quota: "+ 12 GB",
+    period: "30 Hari",
+    price: "Rp 150.000",
+    isSelected: false,
+  },
+  {
+    id: 7,
+    name: "Kabel Data LED Baseus Halo Fast Charging iPhone/Micro USB/Type-C 1M – Baseus Indonesia",
+    image: "https://via.placeholder.com/156x156/e39fd09f/333?text=Cable+2",
+    quota: "+ 12 GB",
+    period: "30 Hari",
+    price: "Rp 150.000",
+    isSelected: false,
+  },
+  {
+    id: 8,
     name: "Kabel Data LED Baseus Halo Fast Charging iPhone/Micro USB/Type-C 1M – Baseus Indonesia",
     image: "https://via.placeholder.com/156x156/e39fd09f/333?text=Cable+2",
     quota: "+ 12 GB",
@@ -120,10 +149,10 @@ const MerchUstoreSection: React.FC<MerchUstoreSectionProps> = ({
                   />
 
                   {/* Ribbon for first product */}
-                  {product.ribbon && (
+                  {product?.ribbon && (
                     <div className="merch-ribbon">
                       <span className="merch-ribbon-text">
-                        {product.ribbon}
+                        {product?.ribbon}
                       </span>
                     </div>
                   )}
