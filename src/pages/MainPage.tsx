@@ -11,7 +11,7 @@ const MainPage: React.FC = () => {
   return (
     <MainLayout backgroundImage={[BgMainPage]}>
       <PartnershipSection className="md:mt-24 -mt-10" type="main-page" />
-      <Container>
+      <Container className="px-0">
         <TeaserSection className="md:mt-10 mt-8 px-2" />
         <MenuSection className="md:mt-24 mt-12 px-2" />
         <FAQ className="md:mt-24 mt-16 px-2" screen="main" />

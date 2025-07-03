@@ -27,7 +27,7 @@ const CardMenu: React.FC<CardMenuProps> = ({
   return (
     <div
       style={{ backgroundColor: bgColor || "" }}
-      className="w-full h-[220px] md:h-[353px] rounded-[16px] relative p-[16px] shadow-xl"
+      className="w-full h-[220px] md:h-[353px] rounded-[16px] relative px-[16px] py-[20px] shadow-xl"
     >
       <div
         style={{
@@ -51,7 +51,7 @@ const CardMenu: React.FC<CardMenuProps> = ({
         />
       </div>
 
-      <div className="flex justify-end absolute left-2 top-0 md:relative">
+      <div className="flex justify-end absolute right-[16px] top-[18px] md:relative">
         <img
           src={icon || ""}
           className="object-contain w-[60px] md:w-[100px] mix-blend-luminosity brightness-[0.80]"

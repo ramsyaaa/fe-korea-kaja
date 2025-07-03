@@ -46,7 +46,7 @@ const FAQ: React.FC<FAQProps> = ({ className = "", screen = "main" }) => {
         />
         <img src={TitleFAQMobile} alt="FAQ title mobile" className="object-contain md:hidden" />
         {screen === "main" && (
-          <p className="text-[16px] text-[#6a7481]">
+          <p className="text-[16px] text-[#6a7481] hidden md:block">
             Pertanyaan yang sering ditanyakan terkait Korea
           </p>
         )}
