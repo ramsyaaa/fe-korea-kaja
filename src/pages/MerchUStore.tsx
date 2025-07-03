@@ -29,7 +29,7 @@ const MerchUStore: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 -mt-10" type="merch-ustore" />
+      <PartnershipSection className="-mt-10" type="merch-ustore" />
 
       <MerchUstoreSection className="md:mt-24 mt-16" />
 

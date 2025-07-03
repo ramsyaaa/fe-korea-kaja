@@ -28,7 +28,7 @@ const KuotaKoreaKaja: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 -mt-10" type="kuota-korea-kaja" />
+      <PartnershipSection className="-mt-10" type="kuota-korea-kaja" />
       {/* Kuota Korea Kaja Section */}
       <KuotaKoreaKajaSection className="md:mt-10 mt-8" />
       {/* How To Section */}
