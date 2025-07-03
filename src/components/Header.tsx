@@ -2,6 +2,7 @@ import React from "react";
 import logoIcon from "../assets/icons/logo.svg";
 import TitleImage from "./TitleImage";
 import Navigation from "./Navigation";
+import Container from "./Container";
 
 interface HeaderProps {
   pageTitle?: string;
@@ -34,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
 
       {/* Top Navigation Bar */}
       <div className="relative z-20">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <Container className="flex justify-between items-center">
           {/* Logo */}
           <div className="block cursor-pointer">
             <img
@@ -43,10 +44,10 @@ const Header: React.FC<HeaderProps> = ({ pageTitle }) => {
               className="md:h-[49px] h-[36px] ml-6 md:ml-24"
             />
           </div>
+        </Container>
 
-          {/* Navigation */}
-          {/* <Navigation /> */}
-        </div>
+        {/* Navigation */}
+        {/* <Navigation /> */}
       </div>
 
       {/* Header Title Section */}
