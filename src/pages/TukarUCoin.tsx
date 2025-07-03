@@ -28,7 +28,7 @@ const TukarUCoin: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 -mt-10" type="tukar-ucoin" />
+      <PartnershipSection className="-mt-10" type="tukar-ucoin" />
 
       <RewardSpesialKoreaKajaSection className="md:mt-24 mt-16" />
       {/* How To Section */}

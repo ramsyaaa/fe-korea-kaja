@@ -31,7 +31,7 @@ const RandomPlayDance: React.FC = () => {
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
 
-      <PartnershipSection className="md:mt-10 -mt-10" />
+      <PartnershipSection className="-mt-10" />
       {/* How To Section */}
 
       <HowToSection className="md:mt-24 mt-16" />
