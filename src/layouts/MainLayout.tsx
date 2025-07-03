@@ -8,20 +8,14 @@ interface MainLayoutProps {
   backgroundImage?: string | string[];
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({
-  children,
-  pageTitle,
-  backgroundImage,
-}) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children, pageTitle, backgroundImage }) => {
   const getBackgroundStyle = () => {
     if (!backgroundImage) return {};
 
     if (Array.isArray(backgroundImage)) {
       // Multiple backgrounds using CSS multiple background syntax
       // The first image in the array will be on top
-      const backgroundImages = backgroundImage
-        .map((img) => `url(${img})`)
-        .join(", ");
+      const backgroundImages = backgroundImage.map((img) => `url(${img})`).join(", ");
 
       return {
         backgroundImage: backgroundImages,
@@ -46,7 +40,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     <div className="min-h-screen flex flex-col " style={backgroundStyle}>
       <Header pageTitle={pageTitle} />
       <main className="flex-1 container mx-auto px-4 ">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
