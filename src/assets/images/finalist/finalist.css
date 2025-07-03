@@ -228,7 +228,7 @@ text-transform: uppercase;
 
 .finalist-name {
   font-family: 'Gilroy', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 12px;
   line-height: 1.33em;
   color: #FFFFFF;
@@ -240,7 +240,7 @@ text-transform: uppercase;
   font-weight: 400;
   font-size: 11px;
   line-height: 1.2em;
-  letter-spacing: 27.27%;
+  letter-spacing: 3px;
   text-transform: lowercase;
   color: #FFFFFF;
   margin: 0;

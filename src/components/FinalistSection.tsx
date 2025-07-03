@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../assets/images/finalist/finalist.css";
-import arrowRight from "../assets/icons/how-to/arrow-right.svg";
+
 import chevronLeftIcon from "../assets/icons/kuota/chevron-left.svg";
 import chevronRightIcon from "../assets/icons/kuota/chevron-right.svg";
 interface FinalistProps {
@@ -50,9 +50,9 @@ const FinalistCard: React.FC<FinalistProps> = ({
         <div className="card-bg"></div>
         <img src={photoUrl} alt={name} className="photo" />
       </div>
-      <div className="finalist-info">
+      <div className="finalist-info min-h-[55.16px]">
         <h3 className="finalist-name">{name}</h3>
-        <p className="finalist-username">{username}</p>
+        {username ? <p className="finalist-username">{username}</p> : <></>}
       </div>
     </div>
   );
@@ -65,6 +65,36 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
   const [visibleCount, setVisibleCount] = useState(4); // Default visible cards
   const CARD_WIDTH = 126; // Width of card in px
   const CARD_GAP = 16; // Gap between cards in px
+  const TOTAL_SLOTS = 20; // Total reserved slots per city
+
+  // Create array of 20 slots, filling with actual finalists and placeholders
+  const allSlots = React.useMemo(() => {
+    const slots = [];
+
+    // Add actual finalists
+    for (let i = 0; i < TOTAL_SLOTS; i++) {
+      if (i < finalists.length) {
+        slots.push({ type: "finalist", data: finalists[i] });
+      } else {
+        const imgSilhouettes = [
+          "/src/assets/images/finalist/finalist-silhouete-1.jpg",
+          "/src/assets/images/finalist/finalist-silhouete-2.png",
+          "/src/assets/images/finalist/finalist-silhouete-3.png",
+          "/src/assets/images/finalist/finalist-silhouete-4.png",
+        ];
+        // Get silhouette image by cycling through the array
+        const silhouetteIndex = (i - finalists.length) % imgSilhouettes.length;
+        const emptySlot = {
+          name: "Finalist",
+          username: "",
+          photoUrl: imgSilhouettes[silhouetteIndex],
+        };
+        slots.push({ type: "placeholder", data: emptySlot });
+      }
+    }
+
+    return slots;
+  }, [finalists]);
 
   // Calculate the number of visible cards and slide amount
   React.useEffect(() => {
@@ -112,7 +142,7 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
   }, []);
 
   // Calculate max index to prevent overshooting
-  const maxIndex = Math.max(0, finalists.length - visibleCount);
+  const maxIndex = Math.max(0, TOTAL_SLOTS - visibleCount);
 
   // Adjust activeIndex if it's beyond maxIndex (can happen after resize)
   React.useEffect(() => {
@@ -126,7 +156,7 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
     // Calculate how many cards to slide by - minimum 1, maximum visibleCount
     const slideFactor = Math.min(
       visibleCount,
-      finalists.length - (activeIndex + visibleCount)
+      TOTAL_SLOTS - (activeIndex + visibleCount)
     );
     setActiveIndex((prev) => Math.min(prev + (slideFactor || 1), maxIndex));
   };
@@ -179,8 +209,10 @@ const CitySection: React.FC<CitySectionProps> = ({ cityName, finalists }) => {
             animate={{ x: -offsetX }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {finalists.map((finalist, index) => (
-              <FinalistCard key={index} {...finalist} />
+            {allSlots.map((slot, index) => (
+              <div key={index}>
+                {slot.data ? <FinalistCard {...slot.data} /> : null}
+              </div>
             ))}
           </motion.div>
         </div>
@@ -235,137 +267,15 @@ const FinalistSection: React.FC = () => {
           username: "@kejimin",
           photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
         },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
       ],
     },
     {
       cityName: "Bali",
-      finalists: [
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-      ],
+      finalists: [],
     },
     {
       cityName: "Solo",
-      finalists: [
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-        {
-          name: "Finalist",
-          username: "@finalist",
-          photoUrl: "/src/assets/images/finalist/finalist-photo-1.png",
-        },
-      ],
+      finalists: [],
     },
   ];
 
