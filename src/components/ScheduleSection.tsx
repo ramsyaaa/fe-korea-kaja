@@ -1,10 +1,9 @@
 import React from "react";
 import pinIcon from "../assets/icons/schedule/pin-location.svg";
+import quarterCircle from "../assets/icons/schedule/quarter-circle.svg";
 import jadwalTitle from "../assets/images/schedule/jadwal-title-mobile.png";
 import jadwalTitleDesktop from "../assets/images/schedule/jadwal-title.png";
-import quarterCircle from "../assets/icons/schedule/quarter-circle.svg";
-import scheduleImageMobile from "../assets/images/schedule/schedule-image-mobile.png";
-import scheduleImageDesktop from "../assets/images/schedule/schedule-image-desktop.png";
+import scheduleImage from "../assets/images/schedule/schedule-image-desktop.png";
 import "../assets/styles/schedule.css";
 
 interface CityItemProps {
@@ -106,7 +105,7 @@ const ScheduleSection: React.FC<ScheduleSectionProps> = ({
         <div className="flex flex-col md:flex-row md:gap-6 gap-0 items-center">
           <div className="hidden md:block flex-shrink-0 w-full md:w-1/2">
             <img
-              src={scheduleImageDesktop}
+              src={scheduleImage}
               alt="Schedule"
               className="w-full h-auto object-cover "
             />
@@ -115,7 +114,7 @@ const ScheduleSection: React.FC<ScheduleSectionProps> = ({
           {/* Image - Only shown on mobile */}
           <div className="md:hidden w-full max-w-[327px] mb-6">
             <img
-              src={scheduleImageMobile}
+              src={scheduleImage}
               alt="Schedule"
               className="w-full h-24 object-cover "
             />
