@@ -1,1 +1,12 @@
-export const GET_EXAMPLE_REQUEST = "Get example request";
+export const GET_EVENT_SCHEDULES = "Get Event Schedules";
+export const GET_EVENT_SCHEDULE_DETAIL = "Get Event Schedule Detail";
+export const GET_ALL_FAQS = "Get All FAQS";
+export const GET_FAQ_DETAIL = "Get Faq Detail";
+export const GET_ALL_FINALIST = "Get All Finalist";
+export const GET_FINALIST_DETAIL = "Get Finalist Detail";
+export const GET_ALL_MERCHANDISE_PACKAGE = "Get All Merchandise Package";
+export const GET_MERCHANDISE_PACKAGE_DETAIL = "Get Merchandise Package Detail";
+export const GET_ALL_SPECIAL_REWARD = "Get All Special Reward";
+export const GET_SPECIAL_REWARD_DETAIL = "Get Special Reward Detail";
+export const GET_ALL_PREVIOUS_WINNER = "Get All Previous Winner";
+export const GET_PREVIOUS_WINNER_DETAIL = "Get Previous Winner Detail";
