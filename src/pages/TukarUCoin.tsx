@@ -28,14 +28,17 @@ const TukarUCoin: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 mt-16" type="tukar-ucoin" />
+      <PartnershipSection className="md:mt-24 -mt-10" type="tukar-ucoin" />
 
       <RewardSpesialKoreaKajaSection className="md:mt-24 mt-16" />
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="tukar-ucoin" />
+      <CTASection
+        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
+        type="tukar-ucoin"
+      />
 
       <FAQ className="md:mt-24 mt-16" screen="uCoin" />
     </MainLayout>

@@ -28,14 +28,17 @@ const KuotaKoreaKaja: React.FC = () => {
   return (
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
-      <PartnershipSection className="md:mt-24 mt-16" type="kuota-korea-kaja" />
+      <PartnershipSection className="md:mt-24 -mt-10" type="kuota-korea-kaja" />
       {/* Kuota Korea Kaja Section */}
       <KuotaKoreaKajaSection className="md:mt-10 mt-8" />
       {/* How To Section */}
       <HowToSection className="md:mt-24 mt-16" />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="kuota-korea-kaja" />
+      <CTASection
+        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
+        type="kuota-korea-kaja"
+      />
       <FAQ className="md:mt-24 mt-16" screen="korea-kaja" />
     </MainLayout>
   );

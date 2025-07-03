@@ -31,7 +31,7 @@ const RandomPlayDance: React.FC = () => {
     <MainLayout backgroundImage={backgroundImage}>
       {/* Partnership Section */}
 
-      <PartnershipSection className="md:mt-10 mt-8" />
+      <PartnershipSection className="md:mt-10 -mt-10" />
       {/* How To Section */}
 
       <HowToSection className="md:mt-24 mt-16" />
@@ -45,7 +45,10 @@ const RandomPlayDance: React.FC = () => {
       <FinalistSection />
 
       {/* CTA Section */}
-      <CTASection className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto" type="random-play-dance" />
+      <CTASection
+        className="md:mt-24 mt-16 max-w-[1228px] flex mx-auto"
+        type="random-play-dance"
+      />
 
       {/* Gallery Section */}
       <GallerySection className="md:mt-24 mt-16" />

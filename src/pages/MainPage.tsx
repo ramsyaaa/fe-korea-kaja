@@ -9,10 +9,13 @@ import FAQ from "src/components/FAQ";
 const MainPage: React.FC = () => {
   return (
     <MainLayout backgroundImage={[BgMainPage]}>
-      <PartnershipSection className="md:mt-24 mt-16" type="main-page" />
+      <PartnershipSection className="md:mt-24 -mt-10" type="main-page" />
       <TeaserSection className="md:mt-10 mt-8 px-2 md:mx-auto md:w-[80%]" />
       <MenuSection className="md:mt-24 mt-16 px-2 md:mx-auto md:w-[80%]" />
-      <FAQ className="md:mt-24 mt-16 px-2 md:mx-auto md:w-[80%]" screen="main" />
+      <FAQ
+        className="md:mt-24 mt-16 px-2 md:mx-auto md:w-[80%]"
+        screen="main"
+      />
     </MainLayout>
   );
 };
