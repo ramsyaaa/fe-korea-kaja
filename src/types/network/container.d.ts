@@ -8,7 +8,8 @@ export interface APIMeta {
 
 export interface ApiResponse<T> {
   data: T;
-  meta: APIMeta;
+  success: boolean;
+  message: string;
 }
 
 export interface APIError {
@@ -37,5 +38,5 @@ export type EndpointConfig = {
  * Endpoint source mapping type
  */
 export type ENDPOINT_SOURCE = {
-  [key: string]: EndpointConfig;
+  [key: T]: EndpointConfig;
 };

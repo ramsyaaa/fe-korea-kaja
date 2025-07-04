@@ -129,6 +129,7 @@ const PartnershipSection: React.FC<PartnershipSectionProps> = ({ className = "",
     width: number;
     height: number;
   }) => {
+    console.log({ element, scale });
     return {
       left: `${element.left * scale}px`,
       top: `${element.top * scale}px`,

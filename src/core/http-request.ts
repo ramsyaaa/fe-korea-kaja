@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { API_SOURCE, AxiosHTTPError, EndpointConfig } from "src/types/network/container";
-import { BASE_API_URL, BASE_CMS_URL } from "./env";
+import { AxiosHTTPError } from "src/types/network/container";
+import { BASE_API_URL } from "./env";
 import { serializeParam } from "src/utils";
 
 /**
@@ -36,19 +36,15 @@ httpRequest.interceptors.request.use(
 /**
  * Generate base URL based on API source
  */
-const generateBaseURL = (source: API_SOURCE, url: string) => {
-  if (source === "api") {
-    return `${BASE_API_URL}${url}`;
-  }
-
-  return `${BASE_CMS_URL}${url}`;
+const generateBaseURL = (url: string) => {
+  return `${BASE_API_URL}${url}`;
 };
 
 /**
  * Build complete URL with query parameters
  */
-const buildUrl = (endpoint: EndpointConfig, queryParam: Record<string, any>) => {
-  let url = generateBaseURL(endpoint?.source, endpoint?.endpoint);
+const buildUrl = (endpoint: string, queryParam: Record<string, any>) => {
+  let url = generateBaseURL(endpoint);
   if (queryParam && Object.keys(queryParam).length > 0) {
     url = url + "?" + serializeParam(queryParam);
   }
@@ -59,10 +55,7 @@ const buildUrl = (endpoint: EndpointConfig, queryParam: Record<string, any>) => 
  * Handle HTTP GET requests
  */
 export const get = <T = any>(
-  endpoint: {
-    endpoint: string;
-    source: API_SOURCE;
-  },
+  endpoint: string,
   queryParam: Record<string, any> = {},
   config?: AxiosRequestConfig,
 ) => {
@@ -83,10 +76,7 @@ export const get = <T = any>(
  * Handle HTTP POST requests
  */
 export const post = <T = any>(
-  endpoint: {
-    endpoint: string;
-    source: API_SOURCE;
-  },
+  endpoint: string,
   bodyParam?: Record<string, any>,
   queryParam: Record<string, any> = {},
   config?: AxiosRequestConfig,
@@ -108,10 +98,7 @@ export const post = <T = any>(
  * Note: We use 'apiDelete' instead of 'delete' as the function name since 'delete' is a reserved keyword
  */
 export const apiDelete = <T = any>(
-  endpoint: {
-    endpoint: string;
-    source: API_SOURCE;
-  },
+  endpoint: string,
   bodyParam?: Record<string, any>,
   queryParam: Record<string, any> = {},
   config?: AxiosRequestConfig,
@@ -133,10 +120,7 @@ export const apiDelete = <T = any>(
  * Handle HTTP PATCH requests
  */
 export const patch = <T = any>(
-  endpoint: {
-    endpoint: string;
-    source: API_SOURCE;
-  },
+  endpoint: string,
   bodyParam?: Record<string, any>,
   queryParam: Record<string, any> = {},
   config?: AxiosRequestConfig,
